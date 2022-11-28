@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D86CB40829352F5500BC64C6 /* Name.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86CB40729352F5500BC64C6 /* Name.swift */; };
-		D86CB40A29352F6600BC64C6 /* Name.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86CB40929352F6600BC64C6 /* Name.swift */; };
-		D86CB40C29352F7800BC64C6 /* Name.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86CB40B29352F7800BC64C6 /* Name.swift */; };
+		D86CB40829352F5500BC64C6 /* Name1.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86CB40729352F5500BC64C6 /* Name1.swift */; };
+		D86CB40A29352F6600BC64C6 /* Name2.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86CB40929352F6600BC64C6 /* Name2.swift */; };
+		D86CB40C29352F7800BC64C6 /* Name3.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86CB40B29352F7800BC64C6 /* Name3.swift */; };
 		D8C72DD62933F39000F43DAE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C72DD52933F39000F43DAE /* AppDelegate.swift */; };
 		D8C72DD82933F39000F43DAE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C72DD72933F39000F43DAE /* SceneDelegate.swift */; };
 		D8C72DDA2933F39000F43DAE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C72DD92933F39000F43DAE /* ViewController.swift */; };
@@ -19,9 +19,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		D86CB40729352F5500BC64C6 /* Name.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Name.swift; sourceTree = "<group>"; };
-		D86CB40929352F6600BC64C6 /* Name.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Name.swift; sourceTree = "<group>"; };
-		D86CB40B29352F7800BC64C6 /* Name.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Name.swift; sourceTree = "<group>"; };
+		D86CB40729352F5500BC64C6 /* Name1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Name1.swift; sourceTree = "<group>"; };
+		D86CB40929352F6600BC64C6 /* Name2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Name2.swift; sourceTree = "<group>"; };
+		D86CB40B29352F7800BC64C6 /* Name3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Name3.swift; sourceTree = "<group>"; };
 		D8C72DD22933F39000F43DAE /* CookBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CookBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8C72DD52933F39000F43DAE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D8C72DD72933F39000F43DAE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -46,7 +46,7 @@
 		D86CB40429352DFE00BC64C6 /* Main Screen */ = {
 			isa = PBXGroup;
 			children = (
-				D86CB40929352F6600BC64C6 /* Name.swift */,
+				D86CB40929352F6600BC64C6 /* Name2.swift */,
 			);
 			path = "Main Screen";
 			sourceTree = "<group>";
@@ -54,7 +54,7 @@
 		D86CB40529352E1800BC64C6 /* Detail Recipe Screen */ = {
 			isa = PBXGroup;
 			children = (
-				D86CB40729352F5500BC64C6 /* Name.swift */,
+				D86CB40729352F5500BC64C6 /* Name1.swift */,
 			);
 			path = "Detail Recipe Screen";
 			sourceTree = "<group>";
@@ -62,7 +62,7 @@
 		D86CB40629352EA100BC64C6 /* Team Screen */ = {
 			isa = PBXGroup;
 			children = (
-				D86CB40B29352F7800BC64C6 /* Name.swift */,
+				D86CB40B29352F7800BC64C6 /* Name3.swift */,
 			);
 			path = "Team Screen";
 			sourceTree = "<group>";
@@ -171,12 +171,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D86CB40C29352F7800BC64C6 /* Name.swift in Sources */,
+				D86CB40C29352F7800BC64C6 /* Name3.swift in Sources */,
 				D8C72DDA2933F39000F43DAE /* ViewController.swift in Sources */,
 				D8C72DD62933F39000F43DAE /* AppDelegate.swift in Sources */,
-				D86CB40829352F5500BC64C6 /* Name.swift in Sources */,
+				D86CB40829352F5500BC64C6 /* Name1.swift in Sources */,
 				D8C72DD82933F39000F43DAE /* SceneDelegate.swift in Sources */,
-				D86CB40A29352F6600BC64C6 /* Name.swift in Sources */,
+				D86CB40A29352F6600BC64C6 /* Name2.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
