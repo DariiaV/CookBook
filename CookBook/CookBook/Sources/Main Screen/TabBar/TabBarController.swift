@@ -23,7 +23,7 @@ class TabBarController: UITabBarController {
                 image: UIImage(systemName: "house.fill")
             ),
             generateVC(
-                viewController: MainViewController(),
+                viewController: KitchenViewController(),
                 title: "Kitchen",
                 image: UIImage(systemName: "cooktop.fill")
             ),

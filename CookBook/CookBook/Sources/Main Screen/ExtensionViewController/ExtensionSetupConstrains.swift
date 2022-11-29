@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension MainViewController {
+extension KitchenViewController {
     
     func setupConstraints() {
         let guide = view.safeAreaLayoutGuide

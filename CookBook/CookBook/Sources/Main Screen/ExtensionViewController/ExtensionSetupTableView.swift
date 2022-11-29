@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension MainViewController {
+extension KitchenViewController {
     
     func setupTableView() {
         
@@ -15,7 +15,6 @@ extension MainViewController {
         myTableView.rowHeight = 60
         myTableView.register(MyOwnCell.self, forCellReuseIdentifier: "CellID")
         myTableView.dataSource = self
-//        myTableView.delegate = self
+        myTableView.delegate = self
     }
-    
 }

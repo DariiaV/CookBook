@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension MainViewController {
+extension KitchenViewController {
     
     func colorView () {
         view.backgroundColor = .red
