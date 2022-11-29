@@ -24,14 +24,20 @@ class TabBarController: UITabBarController {
             ),
             generateVC(
                 viewController: MainViewController(),
+                title: "Kitchen",
+                image: UIImage(systemName: "cooktop.fill")
+            ),
+          
+            generateVC(
+                viewController: DetailViewController(),
                 title: "Recipes",
-                image: UIImage(systemName: "book")
+                image: UIImage(systemName: "book.fill")
             ),
           
             generateVC(
                 viewController: FavouriteViewController(),
                 title: "Favourite",
-                image: UIImage(systemName: "star")
+                image: UIImage(systemName: "star.fill")
             )
         ]
     }
