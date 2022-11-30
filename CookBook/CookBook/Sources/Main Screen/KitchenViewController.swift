@@ -23,7 +23,7 @@ class KitchenViewController: UIViewController  {
     let cellScreen = MyOwnCell()
 
     var cookBookArray = [CookBookElement]()
-    var cookRecipes: CookBook2?
+//    var cookRecipes: CookBook2?
     
     override func viewDidLoad() {
         super.viewDidLoad()
