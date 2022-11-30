@@ -11,6 +11,7 @@ final class DetailViewController: UIViewController {
 
     //MARK: - UIElements
 
+    var id: String?
     private lazy var image: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "patato")
@@ -29,6 +30,9 @@ final class DetailViewController: UIViewController {
         return label
     }()
 
+    private var manager = RecipeManager()
+    private var ingredient = [Ingredient]()
+    
     // MARK: - LifeCycle
 
     override func viewDidLoad() {
@@ -37,6 +41,9 @@ final class DetailViewController: UIViewController {
 
         setupHierarchy()
         setupLayout()
+        manager.delegate = self
+        id = "715594"
+        manager.fetchRecipe(id: id)
     }
 
     // MARK: - Setups
@@ -58,5 +65,38 @@ final class DetailViewController: UIViewController {
             nameLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20)
 
         ])
+    }
+}
+
+extension DetailViewController: RecipeManagerDelegate {
+    
+    // MARK: - RecipeManagerDelegate
+    
+    func didFailWithError(error: String) {
+        let alertVC = UIAlertController(title: error, message: nil, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .cancel)
+        alertVC.addAction(okAction)
+        
+        DispatchQueue.main.async { [weak self] in
+            self?.present(alertVC, animated: true)
+        }
+    }
+    
+    func didUpdateRecipe(recipe: DetailRecipe) {
+        DispatchQueue.main.async { [weak self] in
+            guard let self else {
+                return
+            }
+
+            self.ingredient = recipe.extendedIngredients
+            self.nameLabel.text = recipe.title
+            
+            self.manager.downloadImage(from: recipe.image) { [weak self] image in
+                DispatchQueue.main.async {
+                    self?.image.image = image
+                }
+            }
+        }
+        
     }
 }
