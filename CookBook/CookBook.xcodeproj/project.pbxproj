@@ -22,6 +22,8 @@
 		D86CB40829352F5500BC64C6 /* DeatilViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86CB40729352F5500BC64C6 /* DeatilViewController.swift */; };
 		D86CB40A29352F6600BC64C6 /* KitchenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86CB40929352F6600BC64C6 /* KitchenViewController.swift */; };
 		D86CB40C29352F7800BC64C6 /* Name3.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86CB40B29352F7800BC64C6 /* Name3.swift */; };
+		D89572062937CFAD005412E7 /* DetailRecipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = D89572052937CFAD005412E7 /* DetailRecipe.swift */; };
+		D895720A2937D20A005412E7 /* RecipeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D89572092937D20A005412E7 /* RecipeManager.swift */; };
 		D8C72DD62933F39000F43DAE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C72DD52933F39000F43DAE /* AppDelegate.swift */; };
 		D8C72DDA2933F39000F43DAE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C72DD92933F39000F43DAE /* ViewController.swift */; };
 		D8C72DDF2933F39100F43DAE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D8C72DDE2933F39100F43DAE /* Assets.xcassets */; };
@@ -44,6 +46,8 @@
 		D86CB40729352F5500BC64C6 /* DeatilViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeatilViewController.swift; sourceTree = "<group>"; };
 		D86CB40929352F6600BC64C6 /* KitchenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KitchenViewController.swift; sourceTree = "<group>"; };
 		D86CB40B29352F7800BC64C6 /* Name3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Name3.swift; sourceTree = "<group>"; };
+		D89572052937CFAD005412E7 /* DetailRecipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailRecipe.swift; sourceTree = "<group>"; };
+		D89572092937D20A005412E7 /* RecipeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeManager.swift; sourceTree = "<group>"; };
 		D8C72DD22933F39000F43DAE /* CookBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CookBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8C72DD52933F39000F43DAE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D8C72DD92933F39000F43DAE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -143,6 +147,7 @@
 			isa = PBXGroup;
 			children = (
 				D86CB40729352F5500BC64C6 /* DeatilViewController.swift */,
+				D89572072937CFCC005412E7 /* Model */,
 			);
 			path = "Detail Recipe Screen";
 			sourceTree = "<group>";
@@ -153,6 +158,22 @@
 				D86CB40B29352F7800BC64C6 /* Name3.swift */,
 			);
 			path = "Team Screen";
+			sourceTree = "<group>";
+		};
+		D89572072937CFCC005412E7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D89572052937CFAD005412E7 /* DetailRecipe.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D89572082937D1BC005412E7 /* NetworkManager */ = {
+			isa = PBXGroup;
+			children = (
+				D89572092937D20A005412E7 /* RecipeManager.swift */,
+			);
+			path = NetworkManager;
 			sourceTree = "<group>";
 		};
 		D8C72DC92933F39000F43DAE = {
@@ -202,6 +223,7 @@
 		ECAC198229355524004039AA /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				D89572082937D1BC005412E7 /* NetworkManager */,
 				D8C72DD92933F39000F43DAE /* ViewController.swift */,
 				D86CB40529352E1800BC64C6 /* Detail Recipe Screen */,
 				D86CB40429352DFE00BC64C6 /* Main Screen */,
@@ -280,6 +302,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D89572062937CFAD005412E7 /* DetailRecipe.swift in Sources */,
 				5024449C2935FF7700816569 /* UIColorExtension.swift in Sources */,
 				502444892935E82200816569 /* ExtensionColorView.swift in Sources */,
 				502444802935E7C700816569 /* MyOwnCell.swift in Sources */,
@@ -295,6 +318,7 @@
 				D86CB40829352F5500BC64C6 /* DeatilViewController.swift in Sources */,
 				502444922935E93000816569 /* CellModel.swift in Sources */,
 				502444952935F9F200816569 /* TabBarController.swift in Sources */,
+				D895720A2937D20A005412E7 /* RecipeManager.swift in Sources */,
 				502444902935E85F00816569 /* ExtensionHVsetupConstrains.swift in Sources */,
 				D86CB40A29352F6600BC64C6 /* KitchenViewController.swift in Sources */,
 			);
