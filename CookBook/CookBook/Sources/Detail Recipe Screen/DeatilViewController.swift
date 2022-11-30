@@ -30,6 +30,23 @@ final class DetailViewController: UIViewController {
         return label
     }()
 
+    private lazy var tableView: UITableView = {
+        let tableView = UITableView(frame: CGRect.zero, style: .insetGrouped)
+        tableView.backgroundColor = .gray
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        return tableView
+    }()
+
+    private lazy var descriptionLabel: UILabel = {
+           let label = UILabel()
+           label.text = "чистим жарим кушаем"
+           label.textAlignment = .left
+           label.numberOfLines = 10
+           label.backgroundColor = .red
+           label.translatesAutoresizingMaskIntoConstraints = false
+           return label
+       }()
+
     private var manager = RecipeManager()
     private var ingredient = [Ingredient]()
     
@@ -41,6 +58,7 @@ final class DetailViewController: UIViewController {
 
         setupHierarchy()
         setupLayout()
+        setupView()
         manager.delegate = self
         id = "715594"
         manager.fetchRecipe(id: id)
@@ -48,22 +66,38 @@ final class DetailViewController: UIViewController {
 
     // MARK: - Setups
 
+    func setupView() {
+        tableView.dataSource = self
+        tableView.delegate = self
+    }
+
     private func setupHierarchy() {
         view.addSubview(image)
         view.addSubview(nameLabel)
+        view.addSubview(descriptionLabel)
+        view.addSubview(tableView)
     }
 
     private func setupLayout() {
         NSLayoutConstraint.activate([
-            image.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 40),
+            image.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             image.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             image.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            image.heightAnchor.constraint(equalToConstant: 300),
+            image.heightAnchor.constraint(equalToConstant: 260),
 
-            nameLabel.topAnchor.constraint(equalTo: image.bottomAnchor, constant: 20),
+            nameLabel.topAnchor.constraint(equalTo: image.bottomAnchor, constant: 5),
             nameLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            nameLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20)
+            nameLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
 
+            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            tableView.topAnchor.constraint(equalTo: nameLabel.bottomAnchor),
+            tableView.bottomAnchor.constraint(equalTo: descriptionLabel.topAnchor),
+
+            descriptionLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            descriptionLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            descriptionLabel.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -97),
+            descriptionLabel.heightAnchor.constraint(equalToConstant: 150)
         ])
     }
 }
@@ -98,5 +132,21 @@ extension DetailViewController: RecipeManagerDelegate {
             }
         }
         
+    }
+}
+
+    //MARK: - UITableViewDataSource, UITableViewDelegate
+
+extension DetailViewController: UITableViewDataSource, UITableViewDelegate {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        ingredient.count
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell(style: .default, reuseIdentifier: nil)
+        let ingredient = ingredient[indexPath.row]
+        cell.textLabel?.text = ingredient.name
+        cell.accessoryType = .disclosureIndicator
+        return cell
     }
 }
