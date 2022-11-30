@@ -29,6 +29,17 @@ final class DetailViewController: UIViewController {
         return label
     }()
 
+    private lazy var descriptionLabel: UILabel = {
+        let label = UILabel()
+        label.text = "чистим жарим кушаем"
+        label.font = .systemFont(ofSize: 18)
+        label.textAlignment = .left
+        label.numberOfLines = 10
+        label.backgroundColor = .red
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+
     // MARK: - LifeCycle
 
     override func viewDidLoad() {
@@ -44,18 +55,24 @@ final class DetailViewController: UIViewController {
     private func setupHierarchy() {
         view.addSubview(image)
         view.addSubview(nameLabel)
+        view.addSubview(descriptionLabel)
     }
 
     private func setupLayout() {
         NSLayoutConstraint.activate([
-            image.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 40),
+            image.topAnchor.constraint(equalTo: view.topAnchor, constant: 40),
             image.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             image.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             image.heightAnchor.constraint(equalToConstant: 300),
 
-            nameLabel.topAnchor.constraint(equalTo: image.bottomAnchor, constant: 20),
+            nameLabel.topAnchor.constraint(equalTo: image.bottomAnchor, constant: 10),
             nameLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            nameLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20)
+            nameLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+
+            descriptionLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            descriptionLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            descriptionLabel.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -97),
+            descriptionLabel.heightAnchor.constraint(equalToConstant: 150)
 
         ])
     }
