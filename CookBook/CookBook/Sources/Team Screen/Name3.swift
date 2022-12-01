@@ -17,7 +17,7 @@ class Name3: UIViewController {
         nextButton.backgroundColor = .systemBlue
         nextButton.addTarget(self, action: #selector(goToNextScreen), for: .touchUpInside)
         nextButton.setTitle("Start cooking", for: .normal)
-        nextButton.setTitleColor(UIColor.blue, for: .normal)
+        nextButton.setTitleColor(UIColor.black, for: .normal)
         nextButton.layer.cornerRadius = 14
         nextButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -25,12 +25,13 @@ class Name3: UIViewController {
             nextButton.centerYAnchor.constraint(equalTo: view.centerYAnchor),
             nextButton.widthAnchor.constraint(equalToConstant: 200),
             nextButton.heightAnchor.constraint(equalToConstant: 50)])
+
         
     }
     
     @objc func goToNextScreen() {
-        let nextScreen = HomeViewController()
-        nextScreen.title = "Second Screen"
+        let nextScreen = KitchenViewController()
+        print("Start cooking")
         navigationController?.pushViewController(nextScreen, animated: true)
     }
     
