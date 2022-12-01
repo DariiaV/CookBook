@@ -1,5 +1,6 @@
 import UIKit
 
+
 class Name3: UIViewController {
     let nextButton = UIButton()
     override func viewDidLoad() {
@@ -13,10 +14,11 @@ class Name3: UIViewController {
     func setupButton() {
         view.addSubview(nextButton)
         
-        nextButton.backgroundColor = .systemRed
-        
+        nextButton.backgroundColor = .systemBlue
         nextButton.addTarget(self, action: #selector(goToNextScreen), for: .touchUpInside)
-        
+        nextButton.setTitle("Start cooking", for: .normal)
+        nextButton.setTitleColor(UIColor.blue, for: .normal)
+        nextButton.layer.cornerRadius = 14
         nextButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             nextButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
@@ -31,5 +33,6 @@ class Name3: UIViewController {
         nextScreen.title = "Second Screen"
         navigationController?.pushViewController(nextScreen, animated: true)
     }
+    
 }
 
