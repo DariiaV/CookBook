@@ -23,7 +23,7 @@ final class DetailViewController: UIViewController {
     private lazy var nameLabel: UILabel = {
         let label = UILabel()
         label.text = "Жареная картошечка с укропом и лисичками"
-        label.font = .systemFont(ofSize: 22)
+        label.font = .systemFont(ofSize: 21)
         label.textAlignment = .center
         label.numberOfLines = 2
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -31,8 +31,7 @@ final class DetailViewController: UIViewController {
     }()
 
     private lazy var tableView: UITableView = {
-        let tableView = UITableView(frame: CGRect.zero, style: .insetGrouped)
-        tableView.backgroundColor = .gray
+        let tableView = UITableView(frame: CGRect.zero, style: .plain)
         tableView.translatesAutoresizingMaskIntoConstraints = false
         return tableView
     }()
@@ -100,6 +99,9 @@ final class DetailViewController: UIViewController {
             descriptionLabel.heightAnchor.constraint(equalToConstant: 150)
         ])
     }
+
+    var lpol = ["11", "22", "33", "44", "55", "66"]
+
 }
 
 extension DetailViewController: RecipeManagerDelegate {
@@ -131,7 +133,6 @@ extension DetailViewController: RecipeManagerDelegate {
                 }
             }
         }
-        
     }
 }
 
@@ -139,14 +140,26 @@ extension DetailViewController: RecipeManagerDelegate {
 
 extension DetailViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        ingredient.count
+        lpol.count
+        //ingredient.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .default, reuseIdentifier: nil)
-        let ingredient = ingredient[indexPath.row]
-        cell.textLabel?.text = ingredient.name
-        cell.accessoryType = .disclosureIndicator
+        let lol = lpol[indexPath.row]
+        cell.textLabel?.text = lol
+        //let ingredient = ingredient[indexPath.row]
+        //cell.textLabel?.text = ingredient.name
         return cell
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+
+        if tableView.cellForRow(at: indexPath)?.accessoryType == UITableViewCell.AccessoryType.checkmark {
+            tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCell.AccessoryType.none
+        } else {
+            tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCell.AccessoryType.checkmark
+        }
     }
 }
