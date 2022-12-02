@@ -12,6 +12,7 @@ struct DetailRecipe: Decodable {
     let image: String
     let readyInMinutes: Int
     let extendedIngredients: [Ingredient]
+    let summary: String
 }
 
 struct Ingredient: Decodable {
