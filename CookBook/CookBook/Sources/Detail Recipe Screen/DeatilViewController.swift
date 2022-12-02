@@ -47,7 +47,8 @@ final class DetailViewController: UIViewController {
        }()
 
     private var manager = RecipeManager()
-    private var ingredient = [Ingredient]()
+    private var ingredients = [Ingredient]()
+    private let cellReuseIdentifier = "cell"
     
     // MARK: - LifeCycle
 
@@ -65,9 +66,10 @@ final class DetailViewController: UIViewController {
 
     // MARK: - Setups
 
-    func setupView() {
+    private func setupView() {
         tableView.dataSource = self
         tableView.delegate = self
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellReuseIdentifier)
     }
 
     private func setupHierarchy() {
@@ -100,8 +102,6 @@ final class DetailViewController: UIViewController {
         ])
     }
 
-    var lpol = ["11", "22", "33", "44", "55", "66"]
-
 }
 
 extension DetailViewController: RecipeManagerDelegate {
@@ -124,7 +124,7 @@ extension DetailViewController: RecipeManagerDelegate {
                 return
             }
 
-            self.ingredient = recipe.extendedIngredients
+            self.ingredients = recipe.extendedIngredients
             self.nameLabel.text = recipe.title
             
             self.manager.downloadImage(from: recipe.image) { [weak self] image in
@@ -132,6 +132,7 @@ extension DetailViewController: RecipeManagerDelegate {
                     self?.image.image = image
                 }
             }
+            self.tableView.reloadData()
         }
     }
 }
@@ -140,26 +141,26 @@ extension DetailViewController: RecipeManagerDelegate {
 
 extension DetailViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        lpol.count
-        //ingredient.count
+        ingredients.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: .default, reuseIdentifier: nil)
-        let lol = lpol[indexPath.row]
-        cell.textLabel?.text = lol
-        //let ingredient = ingredient[indexPath.row]
-        //cell.textLabel?.text = ingredient.name
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier, for: indexPath)
+        let ingredient = ingredients[indexPath.row]
+        cell.textLabel?.text = ingredient.name
+        
         return cell
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-
-        if tableView.cellForRow(at: indexPath)?.accessoryType == UITableViewCell.AccessoryType.checkmark {
-            tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCell.AccessoryType.none
+        let cell = tableView.cellForRow(at: indexPath)
+        if cell?.accessoryType == .checkmark {
+            cell?.accessoryType = .none
         } else {
-            tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCell.AccessoryType.checkmark
+            cell?.accessoryType = .checkmark
         }
     }
 }
+
+

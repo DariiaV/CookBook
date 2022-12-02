@@ -17,7 +17,7 @@ struct RecipeManager {
     var delegate: RecipeManagerDelegate?
     
     private let cache = NSCache<NSString, UIImage>()
-    private let recipeURL = "https://api.spoonacular.com/recipes/%@/information?includeNutrition=false&apiKey=68dacdce560d4598baf62743ea86a9a7"
+    private let recipeURL = "https://api.spoonacular.com/recipes/%@/information?includeNutrition=false&apiKey=YOUR--API--HERE"
     
     func fetchRecipe(id: String?) {
         guard let id else {
