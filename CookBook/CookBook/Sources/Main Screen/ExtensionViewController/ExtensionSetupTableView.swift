@@ -12,7 +12,8 @@ extension KitchenViewController {
     func setupTableView() {
         
         myTableView.backgroundColor = .orange
-        myTableView.rowHeight = 60
+        myTableView.estimatedRowHeight = 50
+//        myTableView.rowHeight = UITableViewA
         myTableView.register(MyOwnCell.self, forCellReuseIdentifier: "CellID")
         myTableView.dataSource = self
         myTableView.delegate = self

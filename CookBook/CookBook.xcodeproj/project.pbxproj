@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5013E7D1293A17CF00AE059E /* RecipeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5013E7CF293A17CF00AE059E /* RecipeManager.swift */; };
+		5013E7D2293A17CF00AE059E /* DetailRecipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5013E7D0293A17CF00AE059E /* DetailRecipe.swift */; };
 		502444802935E7C700816569 /* MyOwnCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5024447F2935E7C700816569 /* MyOwnCell.swift */; };
 		502444852935E81000816569 /* ExtensionSetupTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502444842935E81000816569 /* ExtensionSetupTableView.swift */; };
 		502444882935E82200816569 /* ExtensionSetupConstrains.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502444862935E82200816569 /* ExtensionSetupConstrains.swift */; };
@@ -32,6 +34,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5013E7CF293A17CF00AE059E /* RecipeManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeManager.swift; sourceTree = "<group>"; };
+		5013E7D0293A17CF00AE059E /* DetailRecipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailRecipe.swift; sourceTree = "<group>"; };
 		5024447F2935E7C700816569 /* MyOwnCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyOwnCell.swift; sourceTree = "<group>"; };
 		502444842935E81000816569 /* ExtensionSetupTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionSetupTableView.swift; sourceTree = "<group>"; };
 		502444862935E82200816569 /* ExtensionSetupConstrains.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionSetupConstrains.swift; sourceTree = "<group>"; };
@@ -126,6 +130,8 @@
 		5024449E29361EAC00816569 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				5013E7D0293A17CF00AE059E /* DetailRecipe.swift */,
+				5013E7CF293A17CF00AE059E /* RecipeManager.swift */,
 				502444A329362C2F00816569 /* CookBook.swift */,
 			);
 			name = Networking;
@@ -309,6 +315,7 @@
 				5024449C2935FF7700816569 /* UIColorExtension.swift in Sources */,
 				502444892935E82200816569 /* ExtensionColorView.swift in Sources */,
 				502444802935E7C700816569 /* MyOwnCell.swift in Sources */,
+				5013E7D1293A17CF00AE059E /* RecipeManager.swift in Sources */,
 				502444852935E81000816569 /* ExtensionSetupTableView.swift in Sources */,
 				502444882935E82200816569 /* ExtensionSetupConstrains.swift in Sources */,
 				D86CB40C29352F7800BC64C6 /* Name3.swift in Sources */,
@@ -317,6 +324,7 @@
 				5024449A2935FDB400816569 /* FavouriteViewController.swift in Sources */,
 				D8C72DDA2933F39000F43DAE /* ViewController.swift in Sources */,
 				502444A429362C2F00816569 /* CookBook.swift in Sources */,
+				5013E7D2293A17CF00AE059E /* DetailRecipe.swift in Sources */,
 				5024448E2935E85700816569 /* HeaderView.swift in Sources */,
 				D8C72DD62933F39000F43DAE /* AppDelegate.swift in Sources */,
 				D86CB40829352F5500BC64C6 /* DeatilViewController.swift in Sources */,
