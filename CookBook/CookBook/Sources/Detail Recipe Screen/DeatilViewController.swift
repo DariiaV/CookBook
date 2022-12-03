@@ -11,7 +11,11 @@ final class DetailViewController: UIViewController {
 
     //MARK: - UIElements
 
+    private var manager = RecipeManager()
+    private var ingredients = [Ingredient]()
+    private let cellReuseIdentifier = "cell"
     var id: String?
+
     private lazy var image: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "patato")
@@ -45,10 +49,6 @@ final class DetailViewController: UIViewController {
            label.translatesAutoresizingMaskIntoConstraints = false
            return label
        }()
-
-    private var manager = RecipeManager()
-    private var ingredients = [Ingredient]()
-    private let cellReuseIdentifier = "cell"
     
     // MARK: - LifeCycle
 
@@ -84,7 +84,7 @@ final class DetailViewController: UIViewController {
             image.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             image.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             image.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            image.heightAnchor.constraint(equalToConstant: 260),
+            image.heightAnchor.constraint(equalToConstant: 250),
 
             nameLabel.topAnchor.constraint(equalTo: image.bottomAnchor, constant: 5),
             nameLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
@@ -98,10 +98,9 @@ final class DetailViewController: UIViewController {
             descriptionLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             descriptionLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             descriptionLabel.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -97),
-            descriptionLabel.heightAnchor.constraint(equalToConstant: 150)
+            descriptionLabel.heightAnchor.constraint(equalToConstant: 160)
         ])
     }
-
 }
 
 extension DetailViewController: RecipeManagerDelegate {
@@ -126,6 +125,7 @@ extension DetailViewController: RecipeManagerDelegate {
 
             self.ingredients = recipe.extendedIngredients
             self.nameLabel.text = recipe.title
+            self.descriptionLabel.text = recipe.summary.htmlToString
             
             self.manager.downloadImage(from: recipe.image) { [weak self] image in
                 DispatchQueue.main.async {
