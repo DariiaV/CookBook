@@ -12,7 +12,7 @@ protocol RecipeManagerDelegate {
     func didFailWithError(error: String)
 }
 
-struct RecipeManager {
+struct BestRecipeManager {
     
     var delegate: RecipeManagerDelegate?
     

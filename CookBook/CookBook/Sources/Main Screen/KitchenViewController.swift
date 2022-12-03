@@ -19,11 +19,13 @@ class KitchenViewController: UIViewController  {
     let myTableView = UITableView(frame: .zero, style: .plain)
     let cellScreen = MyOwnCell()
 
+    private var BestManager = BestRecipeManager()
     var cookBookArray = [CookBookElement]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        BestManager.delegate = self
         myTableView.delegate = self
         myTableView.dataSource = self
        
@@ -75,18 +77,10 @@ extension KitchenViewController: UITableViewDataSource,UITableViewDelegate {
             
         }
         
-        cell.textLabel?.text = "\(indexPath.row+1).\(String(describing: cookBookArray[indexPath.row].image!))"
-//        cell.textLabel?.text = "\(indexPath.row+1).\(String(describing: cookBookArray[indexPath.row].id!))"
-//        cell.textLabel?.text = String(describing: cookBookArray[indexPath.row].image!)
-//        cell.textLabel?.text = cell["title"] as! String
+        cell.textLabel?.text = "\(indexPath.row+1).\(String(describing: cookBookArray[indexPath.row].self))"
+
         cell.textLabel?.numberOfLines = 0
         cell.textLabel?.textAlignment = .justified
-        
-//        cell.detailTextLabel?.text = "\(cookBookArray[indexPath.row].title)"
-        
-        //        cell.textLabel?.text = items [indexPath.row]
-        //        cell.setupContent(model: items[indexPath.row] )
-        
         
         return cell
     }
@@ -97,3 +91,36 @@ func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     print("таблица работает")
     
 }
+
+extension KitchenViewController: RecipeManagerDelegate {
+    
+    // MARK: - RecipeManagerDelegate
+    
+    func didFailWithError(error: String) {
+        let alertVC = UIAlertController(title: error, message: nil, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .cancel)
+        alertVC.addAction(okAction)
+        
+        DispatchQueue.main.async { [weak self] in
+            self?.present(alertVC, animated: true)
+        }
+    }
+    
+    func didUpdateRecipe(recipe: CookBook) {
+        DispatchQueue.main.async { [weak self] in
+            guard let self else {
+                return
+            }
+
+//            self.titleRecipe.text = recipe.title
+//
+//            self.BestManager.downloadImage(from: recipe.image) { [weak self] image in
+//                DispatchQueue.main.async {
+//                    self?.image.image = image
+                }
+            }
+        }
+        
+//    }
+//}
+

@@ -14,17 +14,8 @@ struct CookBookElement:Decodable {
         var title: String?
         var image: String?
         var imageTipe: String?
-//        let extendedIngredients: [Ingredient]
+
     }
-
-//    struct Ingredient: Decodable {
-//        let name: String
-//
-//    }
-
-    
-
-
 
 typealias CookBook = [CookBookElement]
 
