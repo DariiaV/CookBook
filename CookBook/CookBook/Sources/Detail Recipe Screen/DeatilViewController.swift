@@ -14,7 +14,8 @@ final class DetailViewController: UIViewController {
     private var manager = RecipeManager()
     private var ingredients = [Ingredient]()
     private let cellReuseIdentifier = "cell"
-    var id: String?
+    
+    var id: Int?
 
     private lazy var image: UIImageView = {
         let imageView = UIImageView()
@@ -56,12 +57,14 @@ final class DetailViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
 
+        tabBarController?.tabBar.isHidden = true
         setupHierarchy()
         setupLayout()
         setupView()
         manager.delegate = self
-        id = "715594"
-        manager.fetchRecipe(id: id)
+        if let id = id {
+            manager.fetchDetailRecipe(id: String(id))
+        }
     }
 
     // MARK: - Setups
@@ -104,7 +107,7 @@ final class DetailViewController: UIViewController {
 }
 
 extension DetailViewController: RecipeManagerDelegate {
-    
+ 
     // MARK: - RecipeManagerDelegate
     
     func didFailWithError(error: String) {
@@ -117,7 +120,7 @@ extension DetailViewController: RecipeManagerDelegate {
         }
     }
     
-    func didUpdateRecipe(recipe: DetailRecipe) {
+    func didUpdateDetailRecipe(recipe: DetailRecipe) {
         DispatchQueue.main.async { [weak self] in
             guard let self else {
                 return
@@ -134,6 +137,10 @@ extension DetailViewController: RecipeManagerDelegate {
             }
             self.tableView.reloadData()
         }
+    }
+    
+    func didCuisinesRecipe(recipes: [CuisineRecipe]) {
+        
     }
 }
 

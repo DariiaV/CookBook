@@ -11,74 +11,49 @@ extension CGFloat {
 
 class KitchenViewController: UIViewController  {
     
-    let apiKey = "e6ffd13c724e49f49a0a32615528c596"
+    let headerView = HeaderView()
+    let myTableView = UITableView()
+    let cellScreen = MyOwnCell()
+    
+    private var manager = RecipeManager()
+    private var cuisineRecipes = [CuisineRecipe]()
     
     // MARK: - Lifecycle
-    
-    let headerView = HeaderView()
-    let myTableView = UITableView(frame: .zero, style: .plain)
-    let cellScreen = MyOwnCell()
-
-    private var BestManager = BestRecipeManager()
-    var cookBookArray = [CookBookElement]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        BestManager.delegate = self
-        myTableView.delegate = self
-        myTableView.dataSource = self
-       
+        manager.delegate = self
+        headerView.delegate = self
         
         setupTableView()
         setupConstraints()
-        colorView ()
-//        makeRequest()
+        colorView()
+        
+        manager.fetchCuisineRecipe(cuisine: .american)
     }
     
-//    private func makeRequest() {
-//        let request = URLRequest(url:URL(string: "https://api.spoonacular.com/recipes/6331/information?&apiKey=\(apiKey)")!)
-//        let task = URLSession.shared.dataTask(with: request) { [self] data, response, error in
-//            if let data = data,
-//
-//               let cookBook = try? JSONDecoder().decode(CookBookElement.self, from: data) {
-//
-//                self.cookBookArray.append(cookBook)
-//
-//                DispatchQueue.main.async {
-//                    self.myTableView.reloadData()
-//                }
-//            }
-//            print(error as Any)
-//            return
-//
-//        }
-//        task.resume()
-//
-//    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tabBarController?.tabBar.isHidden = false
+    }
 }
 
-// MARK: - TableViewDataSource,TableViewDelegate
-
-extension KitchenViewController: UITableViewDataSource,UITableViewDelegate {
+extension KitchenViewController: UITableViewDataSource {
     
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return cookBookArray.count
-    }
+    // MARK: - UITableViewDataSource
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        return cookBookArray.count
+        cuisineRecipes.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "CellID", for: indexPath) as? MyOwnCell  else {
             fatalError("Creating cell from HotelsListViewController failed")
             
-            
         }
         
-        cell.textLabel?.text = "\(indexPath.row+1).\(String(describing: cookBookArray[indexPath.row].self))"
-
+        cell.textLabel?.text = cuisineRecipes[indexPath.row].title
         cell.textLabel?.numberOfLines = 0
         cell.textLabel?.textAlignment = .justified
         
@@ -86,14 +61,19 @@ extension KitchenViewController: UITableViewDataSource,UITableViewDelegate {
     }
 }
 
-func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+extension KitchenViewController: UITableViewDelegate {
     
-    print("таблица работает")
+    // MARK: - UITableViewDelegate
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let detailVC = DetailViewController()
+        detailVC.id = cuisineRecipes[indexPath.row].id
+        navigationController?.pushViewController(detailVC, animated: true)
+    }
 }
 
 extension KitchenViewController: RecipeManagerDelegate {
-    
+       
     // MARK: - RecipeManagerDelegate
     
     func didFailWithError(error: String) {
@@ -106,21 +86,28 @@ extension KitchenViewController: RecipeManagerDelegate {
         }
     }
     
-    func didUpdateRecipe(recipe: CookBook) {
+    func didCuisinesRecipe(recipes: [CuisineRecipe]) {
         DispatchQueue.main.async { [weak self] in
             guard let self else {
                 return
             }
+            
+            self.cuisineRecipes = recipes
 
-//            self.titleRecipe.text = recipe.title
-//
-//            self.BestManager.downloadImage(from: recipe.image) { [weak self] image in
-//                DispatchQueue.main.async {
-//                    self?.image.image = image
-                }
-            }
+            self.myTableView.reloadData()
+            
         }
+    }
+    
+    func didUpdateDetailRecipe(recipe: DetailRecipe) {
         
-//    }
-//}
+    }
+}
 
+extension KitchenViewController: HeaderViewDelegate {
+    func didTapCuisineButton(cuisine: Cuisine) {
+        manager.fetchCuisineRecipe(cuisine: cuisine)
+    }
+    
+    
+}

@@ -16,6 +16,7 @@ class TabBarController: UITabBarController {
     }
     
     private func generateTabBar() {
+        let kitchenVC = UINavigationController(rootViewController: KitchenViewController())
         viewControllers = [
             generateVC(
                 viewController: Name3(),
@@ -23,15 +24,9 @@ class TabBarController: UITabBarController {
                 image: UIImage(systemName: "house.fill")
             ),
             generateVC(
-                viewController: KitchenViewController(),
+                viewController: kitchenVC,
                 title: "Kitchen",
                 image: UIImage(systemName: "cooktop.fill")
-            ),
-          
-            generateVC(
-                viewController: DetailViewController(),
-                title: "Recipes",
-                image: UIImage(systemName: "book.fill")
             ),
           
             generateVC(

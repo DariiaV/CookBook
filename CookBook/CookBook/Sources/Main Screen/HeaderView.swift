@@ -6,7 +6,7 @@
 //
 
 protocol HeaderViewDelegate: AnyObject {
-    func didTapAdd()
+    func didTapCuisineButton(cuisine: Cuisine)
 }
 
 import UIKit
@@ -41,9 +41,9 @@ extension CGFloat {
 
 class HeaderView : UIView {
     
-//    weak var delegate: HeaderViewDelegate?
+    weak var delegate: HeaderViewDelegate?
     
-    // MARK: - Costomize
+    // MARK: - Customize
     
     lazy var welcomeTitle : UILabel = {
         let welcomeTitle = UILabel()
@@ -57,10 +57,11 @@ class HeaderView : UIView {
     
     lazy var americanButton : UIButton = {
         let americanButton = UIButton ()
-        americanButton.setTitle("Американская", for: .normal)
+        americanButton.setTitle("American", for: .normal)
         americanButton.setTitleColor(UIColor.blue, for: .normal)
         americanButton.layer.cornerRadius = 14
-//        addButton.addTarget(self, action: #selector(addBut), for:.touchUpInside)
+        americanButton.tag = 0
+        americanButton.addTarget(self, action: #selector(didTapButton(_:)), for:.touchUpInside)
         americanButton.layer.masksToBounds = true
         americanButton.layer.cornerRadius = 20
         americanButton.layer.borderWidth = 1
@@ -70,10 +71,11 @@ class HeaderView : UIView {
     
     lazy var italianButton : UIButton = {
         let italianButton = UIButton ()
-        italianButton.setTitle("Итальянская", for: .normal)
+        italianButton.setTitle("Italian", for: .normal)
         italianButton.setTitleColor(UIColor.blue, for: .normal)
         italianButton.layer.cornerRadius = 14
-//        addButton.addTarget(self, action: #selector(addBut), for:.touchUpInside)
+        italianButton.tag = 1
+        italianButton.addTarget(self, action: #selector(didTapButton(_:)), for:.touchUpInside)
         italianButton.layer.masksToBounds = true
         italianButton.layer.cornerRadius = 20
         italianButton.layer.borderWidth = 1
@@ -83,10 +85,11 @@ class HeaderView : UIView {
     
     lazy var japaneseButton : UIButton = {
         let japaneseButton = UIButton ()
-        japaneseButton.setTitle("Японская", for: .normal)
+        japaneseButton.setTitle("Japanese", for: .normal)
         japaneseButton.setTitleColor(UIColor.blue, for: .normal)
         japaneseButton.layer.cornerRadius = 14
-//        addButton.addTarget(self, action: #selector(addBut), for:.touchUpInside)
+        japaneseButton.tag = 2
+        japaneseButton.addTarget(self, action: #selector(didTapButton(_:)), for:.touchUpInside)
         japaneseButton.layer.masksToBounds = true
         japaneseButton.layer.cornerRadius = 20
         japaneseButton.layer.borderWidth = 1
@@ -94,17 +97,18 @@ class HeaderView : UIView {
         return japaneseButton
     }()
     
-    lazy var greekButton : UIButton = {
-        let greekButton = UIButton ()
-        greekButton.setTitle("Греческая", for: .normal)
-        greekButton.setTitleColor(UIColor.blue, for: .normal)
-        greekButton.layer.cornerRadius = 14
-//        addButton.addTarget(self, action: #selector(addBut), for:.touchUpInside)
-        greekButton.layer.masksToBounds = true
-        greekButton.layer.cornerRadius = 20
-        greekButton.layer.borderWidth = 1
-        greekButton.layer.borderColor = UIColor.blue.cgColor
-        return greekButton
+    lazy var europeanButton : UIButton = {
+        let europeanButton = UIButton ()
+        europeanButton.setTitle("European", for: .normal)
+        europeanButton.setTitleColor(UIColor.blue, for: .normal)
+        europeanButton.layer.cornerRadius = 14
+        europeanButton.tag = 3
+        europeanButton.addTarget(self, action: #selector(didTapButton(_:)), for:.touchUpInside)
+        europeanButton.layer.masksToBounds = true
+        europeanButton.layer.cornerRadius = 20
+        europeanButton.layer.borderWidth = 1
+        europeanButton.layer.borderColor = UIColor.blue.cgColor
+        return europeanButton
     }()
     
     // MARK: - Initialization
@@ -117,6 +121,19 @@ class HeaderView : UIView {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    @objc private func didTapButton(_ selector: UIButton) {
+        switch selector.tag {
+        case 0 :
+            delegate?.didTapCuisineButton(cuisine: .american)
+        case 1:
+            delegate?.didTapCuisineButton(cuisine: .italian)
+        case 2:
+            delegate?.didTapCuisineButton(cuisine: .japanese)
+        default:
+            delegate?.didTapCuisineButton(cuisine: .european)
+        }
     }
         
 }
