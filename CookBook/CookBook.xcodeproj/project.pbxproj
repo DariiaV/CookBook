@@ -23,7 +23,7 @@
 		502444A429362C2F00816569 /* CookBookRecipes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502444A329362C2F00816569 /* CookBookRecipes.swift */; };
 		D86CB40829352F5500BC64C6 /* DeatilViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86CB40729352F5500BC64C6 /* DeatilViewController.swift */; };
 		D86CB40A29352F6600BC64C6 /* KitchenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86CB40929352F6600BC64C6 /* KitchenViewController.swift */; };
-		D86CB40C29352F7800BC64C6 /* Name3.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86CB40B29352F7800BC64C6 /* Name3.swift */; };
+		D86CB40C29352F7800BC64C6 /* FistScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86CB40B29352F7800BC64C6 /* FistScreenViewController.swift */; };
 		D86DC3CF293A9264005A8797 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86DC3CE293A9264005A8797 /* String+Extension.swift */; };
 		D89572062937CFAD005412E7 /* DetailRecipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = D89572052937CFAD005412E7 /* DetailRecipe.swift */; };
 		D895720A2937D20A005412E7 /* RecipeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D89572092937D20A005412E7 /* RecipeManager.swift */; };
@@ -48,7 +48,7 @@
 		502444A329362C2F00816569 /* CookBookRecipes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CookBookRecipes.swift; sourceTree = "<group>"; };
 		D86CB40729352F5500BC64C6 /* DeatilViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeatilViewController.swift; sourceTree = "<group>"; };
 		D86CB40929352F6600BC64C6 /* KitchenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KitchenViewController.swift; sourceTree = "<group>"; };
-		D86CB40B29352F7800BC64C6 /* Name3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Name3.swift; sourceTree = "<group>"; };
+		D86CB40B29352F7800BC64C6 /* FistScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FistScreenViewController.swift; sourceTree = "<group>"; };
 		D86DC3CE293A9264005A8797 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		D89572052937CFAD005412E7 /* DetailRecipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailRecipe.swift; sourceTree = "<group>"; };
 		D89572092937D20A005412E7 /* RecipeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeManager.swift; sourceTree = "<group>"; };
@@ -148,7 +148,7 @@
 		D86CB40629352EA100BC64C6 /* Team Screen */ = {
 			isa = PBXGroup;
 			children = (
-				D86CB40B29352F7800BC64C6 /* Name3.swift */,
+				D86CB40B29352F7800BC64C6 /* FistScreenViewController.swift */,
 			);
 			path = "Team Screen";
 			sourceTree = "<group>";
@@ -303,7 +303,7 @@
 				502444802935E7C700816569 /* MyOwnCell.swift in Sources */,
 				502444852935E81000816569 /* ExtensionSetupTableView.swift in Sources */,
 				502444882935E82200816569 /* ExtensionSetupConstrains.swift in Sources */,
-				D86CB40C29352F7800BC64C6 /* Name3.swift in Sources */,
+				D86CB40C29352F7800BC64C6 /* FistScreenViewController.swift in Sources */,
 				502444982935FDA900816569 /* HomeViewController.swift in Sources */,
 				D86DC3CF293A9264005A8797 /* String+Extension.swift in Sources */,
 				5024449A2935FDB400816569 /* FavouriteViewController.swift in Sources */,

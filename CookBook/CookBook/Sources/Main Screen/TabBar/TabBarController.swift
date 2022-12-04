@@ -19,7 +19,7 @@ class TabBarController: UITabBarController {
         let kitchenVC = UINavigationController(rootViewController: KitchenViewController())
         viewControllers = [
             generateVC(
-                viewController: Name3(),
+                viewController: FistScreenViewController(),
                 title: "Home",
                 image: UIImage(systemName: "house.fill")
             ),
