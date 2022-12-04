@@ -17,7 +17,6 @@
 		502444902935E85F00816569 /* ExtensionHVsetupConstrains.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5024448F2935E85F00816569 /* ExtensionHVsetupConstrains.swift */; };
 		502444922935E93000816569 /* CellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502444912935E93000816569 /* CellModel.swift */; };
 		502444952935F9F200816569 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502444942935F9F200816569 /* TabBarController.swift */; };
-		502444982935FDA900816569 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502444972935FDA900816569 /* HomeViewController.swift */; };
 		5024449A2935FDB400816569 /* FavouriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502444992935FDB400816569 /* FavouriteViewController.swift */; };
 		5024449C2935FF7700816569 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5024449B2935FF7700816569 /* UIColorExtension.swift */; };
 		502444A429362C2F00816569 /* CookBookRecipes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502444A329362C2F00816569 /* CookBookRecipes.swift */; };
@@ -42,7 +41,6 @@
 		5024448F2935E85F00816569 /* ExtensionHVsetupConstrains.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionHVsetupConstrains.swift; sourceTree = "<group>"; };
 		502444912935E93000816569 /* CellModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellModel.swift; sourceTree = "<group>"; };
 		502444942935F9F200816569 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
-		502444972935FDA900816569 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		502444992935FDB400816569 /* FavouriteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavouriteViewController.swift; sourceTree = "<group>"; };
 		5024449B2935FF7700816569 /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		502444A329362C2F00816569 /* CookBookRecipes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CookBookRecipes.swift; sourceTree = "<group>"; };
@@ -126,7 +124,7 @@
 		D86CB40429352DFE00BC64C6 /* Main Screen */ = {
 			isa = PBXGroup;
 			children = (
-				502444972935FDA900816569 /* HomeViewController.swift */,
+				D86CB40B29352F7800BC64C6 /* FistScreenViewController.swift */,
 				502444992935FDB400816569 /* FavouriteViewController.swift */,
 				5024449D29361E4C00816569 /* KitchenViewController */,
 				5024447E2935E7A200816569 /* TableViewCell */,
@@ -143,14 +141,6 @@
 				D86CB40729352F5500BC64C6 /* DeatilViewController.swift */,
 			);
 			path = "Detail Recipe Screen";
-			sourceTree = "<group>";
-		};
-		D86CB40629352EA100BC64C6 /* Team Screen */ = {
-			isa = PBXGroup;
-			children = (
-				D86CB40B29352F7800BC64C6 /* FistScreenViewController.swift */,
-			);
-			path = "Team Screen";
 			sourceTree = "<group>";
 		};
 		D89572072937CFCC005412E7 /* JSONModel */ = {
@@ -222,7 +212,6 @@
 				D89572082937D1BC005412E7 /* NetworkManager */,
 				D86CB40529352E1800BC64C6 /* Detail Recipe Screen */,
 				D86CB40429352DFE00BC64C6 /* Main Screen */,
-				D86CB40629352EA100BC64C6 /* Team Screen */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -304,7 +293,6 @@
 				502444852935E81000816569 /* ExtensionSetupTableView.swift in Sources */,
 				502444882935E82200816569 /* ExtensionSetupConstrains.swift in Sources */,
 				D86CB40C29352F7800BC64C6 /* FistScreenViewController.swift in Sources */,
-				502444982935FDA900816569 /* HomeViewController.swift in Sources */,
 				D86DC3CF293A9264005A8797 /* String+Extension.swift in Sources */,
 				5024449A2935FDB400816569 /* FavouriteViewController.swift in Sources */,
 				502444A429362C2F00816569 /* CookBookRecipes.swift in Sources */,

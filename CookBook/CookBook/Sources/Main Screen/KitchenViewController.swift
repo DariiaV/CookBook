@@ -29,14 +29,16 @@ class KitchenViewController: UIViewController  {
         setupTableView()
         setupConstraints()
         colorView()
+        self.tabBarController?.tabBar.isHidden = true
         
         manager.fetchCuisineRecipe(cuisine: .american)
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        tabBarController?.tabBar.isHidden = false
-    }
+//    override func viewWillAppear(_ animated: Bool) {
+//        super.viewWillAppear(animated)
+//
+//        self.tabBarController?.tabBar.isHidden = false
+//    }
 }
 
 extension KitchenViewController: UITableViewDataSource {

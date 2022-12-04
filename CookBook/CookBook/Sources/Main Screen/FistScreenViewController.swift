@@ -23,7 +23,16 @@ class FistScreenViewController: UIViewController {
         configureViewFistScreen()
         view.backgroundColor = .systemBackground
         navigationController?.navigationBar.prefersLargeTitles = true
-        
+//        self.tabBarController?.tabBar.isHidden = true
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tabBarController?.tabBar.isHidden = true
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.tabBarController?.tabBar.isHidden = false
     }
     
     lazy var nextButton : UIButton = {
@@ -52,7 +61,8 @@ class FistScreenViewController: UIViewController {
         nextScreen.modalPresentationStyle = .fullScreen
         self.present(nextScreen, animated: true)
         print("Start cooking")
-//        navigationController?.pushViewController(nextScreen, animated: true)
+   
+        navigationController?.pushViewController(nextScreen, animated: true)
     }
     
 }
