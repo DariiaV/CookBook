@@ -14,16 +14,7 @@ class TabBarController: UITabBarController {
         generateTabBar()
         setTabBarAppearance()
         tabBarController?.tabBar.isHidden = true
-    }
-//    override func viewWillAppear(_ animated: Bool) {
-//        super.viewWillAppear(animated)
-//        tabBarController?.tabBar.isHidden = false
-//    }
-//    override func viewWillDisappear(_ animated: Bool) {
-//        super.viewWillAppear(animated)
-//        tabBarController?.tabBar.isHidden = false
-//    }
-    
+    }    
     private func generateTabBar() {
         let kitchenVC = UINavigationController(rootViewController: KitchenViewController())
         viewControllers = [

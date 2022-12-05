@@ -58,7 +58,7 @@ class HeaderView : UIView {
     lazy var americanButton : UIButton = {
         let americanButton = UIButton ()
         americanButton.setTitle("American", for: .normal)
-        americanButton.setTitleColor(UIColor.blue, for: .normal)
+        americanButton.setTitleColor(UIColor.black, for: .normal)
         americanButton.layer.cornerRadius = 14
         americanButton.tag = 0
         americanButton.addTarget(self, action: #selector(didTapButton(_:)), for:.touchUpInside)
@@ -66,13 +66,14 @@ class HeaderView : UIView {
         americanButton.layer.cornerRadius = 20
         americanButton.layer.borderWidth = 1
         americanButton.layer.borderColor = UIColor.blue.cgColor
+        americanButton.backgroundColor = .red
         return americanButton
     }()
     
     lazy var italianButton : UIButton = {
         let italianButton = UIButton ()
         italianButton.setTitle("Italian", for: .normal)
-        italianButton.setTitleColor(UIColor.blue, for: .normal)
+        italianButton.setTitleColor(UIColor.black, for: .normal)
         italianButton.layer.cornerRadius = 14
         italianButton.tag = 1
         italianButton.addTarget(self, action: #selector(didTapButton(_:)), for:.touchUpInside)
@@ -80,13 +81,14 @@ class HeaderView : UIView {
         italianButton.layer.cornerRadius = 20
         italianButton.layer.borderWidth = 1
         italianButton.layer.borderColor = UIColor.blue.cgColor
+        italianButton.backgroundColor = .yellow
         return italianButton
     }()
     
     lazy var japaneseButton : UIButton = {
         let japaneseButton = UIButton ()
         japaneseButton.setTitle("Japanese", for: .normal)
-        japaneseButton.setTitleColor(UIColor.blue, for: .normal)
+        japaneseButton.setTitleColor(UIColor.black, for: .normal)
         japaneseButton.layer.cornerRadius = 14
         japaneseButton.tag = 2
         japaneseButton.addTarget(self, action: #selector(didTapButton(_:)), for:.touchUpInside)
@@ -94,13 +96,14 @@ class HeaderView : UIView {
         japaneseButton.layer.cornerRadius = 20
         japaneseButton.layer.borderWidth = 1
         japaneseButton.layer.borderColor = UIColor.blue.cgColor
+        japaneseButton.backgroundColor = .white
         return japaneseButton
     }()
     
     lazy var europeanButton : UIButton = {
         let europeanButton = UIButton ()
         europeanButton.setTitle("European", for: .normal)
-        europeanButton.setTitleColor(UIColor.blue, for: .normal)
+        europeanButton.setTitleColor(UIColor.black, for: .normal)
         europeanButton.layer.cornerRadius = 14
         europeanButton.tag = 3
         europeanButton.addTarget(self, action: #selector(didTapButton(_:)), for:.touchUpInside)
@@ -108,6 +111,7 @@ class HeaderView : UIView {
         europeanButton.layer.cornerRadius = 20
         europeanButton.layer.borderWidth = 1
         europeanButton.layer.borderColor = UIColor.blue.cgColor
+        europeanButton.backgroundColor = .systemBlue
         return europeanButton
     }()
     

@@ -14,6 +14,7 @@ class KitchenViewController: UIViewController  {
     let headerView = HeaderView()
     let myTableView = UITableView()
     let cellScreen = MyOwnCell()
+    var items: [CellModel] = []
     
     private var manager = RecipeManager()
     private var cuisineRecipes = [CuisineRecipe]()
@@ -29,14 +30,17 @@ class KitchenViewController: UIViewController  {
         setupTableView()
         setupConstraints()
         colorView()
-        self.tabBarController?.tabBar.isHidden = true
+       
         
         manager.fetchCuisineRecipe(cuisine: .american)
     }
     
 //    override func viewWillAppear(_ animated: Bool) {
 //        super.viewWillAppear(animated)
-//
+//        self.tabBarController?.tabBar.isHidden = false
+//    }
+//    override func viewWillDisappear(_ animated: Bool) {
+//        super.viewWillDisappear(animated)
 //        self.tabBarController?.tabBar.isHidden = false
 //    }
 }
@@ -47,6 +51,7 @@ extension KitchenViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         cuisineRecipes.count
+
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -54,13 +59,18 @@ extension KitchenViewController: UITableViewDataSource {
             fatalError("Creating cell from HotelsListViewController failed")
             
         }
-        
-        cell.textLabel?.text = cuisineRecipes[indexPath.row].title
-        cell.textLabel?.numberOfLines = 0
-        cell.textLabel?.textAlignment = .justified
-        
+                
+        cell.titleRecipe.text = cuisineRecipes[indexPath.row].title
+            
+        self.manager.downloadImage(from:cuisineRecipes[indexPath.row].image!) { [weak self] image in
+            DispatchQueue.main.async {
+                cell.imageRecipe.image = image
+            }
+        }
+
         return cell
     }
+    
 }
 
 extension KitchenViewController: UITableViewDelegate {
@@ -68,6 +78,7 @@ extension KitchenViewController: UITableViewDelegate {
     // MARK: - UITableViewDelegate
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
         let detailVC = DetailViewController()
         detailVC.id = cuisineRecipes[indexPath.row].id
         navigationController?.pushViewController(detailVC, animated: true)

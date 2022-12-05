@@ -30,8 +30,8 @@ struct RecipeManager {
     var delegate: RecipeManagerDelegate?
     
     private let cache = NSCache<NSString, UIImage>()
-    private let recipeURL = "https://api.spoonacular.com/recipes/%@/information?includeNutrition=false&e6ffd13c724e49f49a0a32615528c596"
-    private let cuisinesURL = "https://api.spoonacular.com/recipes/complexSearch?Cuisines=%@&e6ffd13c724e49f49a0a32615528c596"
+    private let recipeURL = "https://api.spoonacular.com/recipes/%@/information?includeNutrition=false&apiKey=e6ffd13c724e49f49a0a32615528c596"
+    private let cuisinesURL = "https://api.spoonacular.com/recipes/complexSearch?Cuisines=%@&apiKey=e6ffd13c724e49f49a0a32615528c596"
     
     func fetchDetailRecipe(id: String?) {
         guard let id else {

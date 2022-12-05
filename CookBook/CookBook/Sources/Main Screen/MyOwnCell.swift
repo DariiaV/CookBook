@@ -3,48 +3,47 @@ import UIKit
 // MARK: - Constant Constraints
 
 extension CGFloat {
+    static let imageRecipeTopAnchor: CGFloat = 20
+    static let imageRecipeLeadingAnchor: CGFloat = 80
+    static let imageRecipeTrailingAnchor: CGFloat = -180
+    static let imageRecipeHeightAnchor: CGFloat = -70
     
-    static let titleRecipeLabelTopAnchor: CGFloat = 7
-    static let titleRecipeLabelLeadingAnchor: CGFloat = 17
-    static let titleRecipeLabelTrailingAnchor: CGFloat = -250
-    static let titleRecipeLabelHeightAnchor : CGFloat = -75
+    static let titleRecipeLabelTopAnchor: CGFloat = 130
+    static let titleRecipeLabelLeadingAnchor: CGFloat = 10
+    static let titleRecipeLabelTrailingAnchor: CGFloat = -120
+    static let titleRecipeLabelHeightAnchor : CGFloat = -85
     
-    static let imageRecipeTopAnchor: CGFloat = 70
-    static let imageRecipeLeadingAnchor: CGFloat = 17
-    static let imageRecipeTrailingAnchor: CGFloat = -250
-    static let imageRecipeHeightAnchor: CGFloat = -75
-    
- 
 }
 
 class MyOwnCell: UITableViewCell  {
     
-    lazy var titleRecipe : UILabel = {
-        let titleRecipe = UILabel()
-        titleRecipe.text = "1"
-        titleRecipe.font = UIFont.systemFont(ofSize: 30)
-        titleRecipe.font = UIFont.boldSystemFont(ofSize: 30.0)
-//        titleRecipe.textAlignment = .center
-        titleRecipe.textColor = .black
-        return titleRecipe
-    } ()
-    
     lazy var imageRecipe : UIImageView = {
         let imageRecipe = UIImageView ()
-        imageRecipe.image = UIImage(named: "")
+        imageRecipe.backgroundColor = .red
         imageRecipe.contentMode = .scaleAspectFill
         return imageRecipe
     }()
     
-  
+    lazy var titleRecipe : UILabel = {
+        let titleRecipe = UILabel()
+        titleRecipe.font = UIFont.systemFont(ofSize: 14)
+        titleRecipe.font = UIFont.boldSystemFont(ofSize: 14)
+//        titleRecipe.backgroundColor = .lightGray
+        titleRecipe.numberOfLines = 10
+        titleRecipe.textAlignment = .justified
+        titleRecipe.textAlignment = .center
+        titleRecipe.textColor = .black
+        return titleRecipe
+    } ()
+    
     // MARK: - Castomize Cell
     
     func castomizeCell () {
         
-        contentView.backgroundColor = .clear
+        contentView.backgroundColor = UIColor(red: 244/255, green: 201/255, blue: 70/255, alpha: 1)
         contentView.layer.borderColor = UIColor.blue.cgColor
-//        contentView.layer.cornerRadius = 50
         contentView.layer.borderWidth = 1
+        
         
     }
     
@@ -65,9 +64,7 @@ class MyOwnCell: UITableViewCell  {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-  
-    
+
 }
 
 
