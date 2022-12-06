@@ -65,8 +65,8 @@ class HeaderView : UIView {
         americanButton.layer.masksToBounds = true
         americanButton.layer.cornerRadius = 20
         americanButton.layer.borderWidth = 1
-        americanButton.layer.borderColor = UIColor.blue.cgColor
-        americanButton.backgroundColor = .red
+        americanButton.layer.borderColor = UIColor.gray.cgColor
+        americanButton.backgroundColor = .white
         return americanButton
     }()
     
@@ -80,8 +80,8 @@ class HeaderView : UIView {
         italianButton.layer.masksToBounds = true
         italianButton.layer.cornerRadius = 20
         italianButton.layer.borderWidth = 1
-        italianButton.layer.borderColor = UIColor.blue.cgColor
-        italianButton.backgroundColor = .yellow
+        italianButton.layer.borderColor = UIColor.gray.cgColor
+        italianButton.backgroundColor = .white
         return italianButton
     }()
     
@@ -95,7 +95,7 @@ class HeaderView : UIView {
         japaneseButton.layer.masksToBounds = true
         japaneseButton.layer.cornerRadius = 20
         japaneseButton.layer.borderWidth = 1
-        japaneseButton.layer.borderColor = UIColor.blue.cgColor
+        japaneseButton.layer.borderColor = UIColor.gray.cgColor
         japaneseButton.backgroundColor = .white
         return japaneseButton
     }()
@@ -110,8 +110,8 @@ class HeaderView : UIView {
         europeanButton.layer.masksToBounds = true
         europeanButton.layer.cornerRadius = 20
         europeanButton.layer.borderWidth = 1
-        europeanButton.layer.borderColor = UIColor.blue.cgColor
-        europeanButton.backgroundColor = .systemBlue
+        europeanButton.layer.borderColor = UIColor.gray.cgColor
+        europeanButton.backgroundColor = .white
         return europeanButton
     }()
     
@@ -138,6 +138,7 @@ class HeaderView : UIView {
         default:
             delegate?.didTapCuisineButton(cuisine: .european)
         }
+        print("Выбор кухни работает")
     }
         
 }

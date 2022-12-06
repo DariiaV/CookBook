@@ -30,9 +30,11 @@ struct RecipeManager {
     var delegate: RecipeManagerDelegate?
     
     private let cache = NSCache<NSString, UIImage>()
-    private let recipeURL = "https://api.spoonacular.com/recipes/%@/information?includeNutrition=false&apiKey=e6ffd13c724e49f49a0a32615528c596"
-    private let cuisinesURL = "https://api.spoonacular.com/recipes/complexSearch?Cuisines=%@&apiKey=e6ffd13c724e49f49a0a32615528c596"
+    private let recipeURL = "https://api.spoonacular.com/recipes/%@/information?includeNutrition=false&apiKey=68dacdce560d4598baf62743ea86a9a7"
     
+    private let cuisinesURL = "https://api.spoonacular.com/recipes/complexSearch?cuisine=%@&apiKey=68dacdce560d4598baf62743ea86a9a7"
+  
+ 
     func fetchDetailRecipe(id: String?) {
         guard let id else {
             delegate?.didFailWithError(error: "Not correct recipe!")
@@ -41,9 +43,10 @@ struct RecipeManager {
         let urlString = String(format: recipeURL, id)
         performRequest(with: urlString, and: .detailRecipe)
     }
-    
+    // метод для выгрузки данных метода кухни
     func fetchCuisineRecipe(cuisine: Cuisine) {
         let urlString = String(format: cuisinesURL, cuisine.rawValue)
+        print(urlString)
         performRequest(with: urlString, and: .cuisine)
     }
     

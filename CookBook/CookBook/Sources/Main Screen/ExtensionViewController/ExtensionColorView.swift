@@ -10,8 +10,8 @@ import UIKit
 extension KitchenViewController {
     
     func colorView () {
-        view.backgroundColor = .red
-        headerView.backgroundColor = UIColor(red: 244/255, green: 201/255, blue: 70/255, alpha: 1)
+        view.backgroundColor = UIColor(red: 240/255, green: 235/255, blue: 231/255, alpha: 1)
+        headerView.backgroundColor = UIColor(red: 240/255, green: 235/255, blue: 231/255, alpha: 1)
        
     }
 }

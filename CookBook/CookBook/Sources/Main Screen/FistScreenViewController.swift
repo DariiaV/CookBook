@@ -79,6 +79,7 @@ class FistScreenViewController: UIViewController {
         nextScreen.modalPresentationStyle = .fullScreen
         self.present(nextScreen, animated: true)
         print("Start cooking")
+
       
    
 //        navigationController?.pushViewController(nextScreen, animated: true)

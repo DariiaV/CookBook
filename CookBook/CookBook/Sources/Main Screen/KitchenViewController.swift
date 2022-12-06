@@ -79,6 +79,7 @@ extension KitchenViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+
         let detailVC = DetailViewController()
         detailVC.id = cuisineRecipes[indexPath.row].id
         navigationController?.pushViewController(detailVC, animated: true)
@@ -106,7 +107,6 @@ extension KitchenViewController: RecipeManagerDelegate {
             }
             
             self.cuisineRecipes = recipes
-
             self.myTableView.reloadData()
             
         }

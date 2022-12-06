@@ -13,6 +13,11 @@ extension CGFloat {
     static let titleRecipeLabelTrailingAnchor: CGFloat = -120
     static let titleRecipeLabelHeightAnchor : CGFloat = -85
     
+    static let titleRecipeLabelTopAnchor: CGFloat = 130
+    static let titleRecipeLabelLeadingAnchor: CGFloat = 10
+    static let titleRecipeLabelTrailingAnchor: CGFloat = -120
+    static let titleRecipeLabelHeightAnchor : CGFloat = -85
+    
 }
 
 class MyOwnCell: UITableViewCell  {
@@ -28,7 +33,6 @@ class MyOwnCell: UITableViewCell  {
         let titleRecipe = UILabel()
         titleRecipe.font = UIFont.systemFont(ofSize: 14)
         titleRecipe.font = UIFont.boldSystemFont(ofSize: 14)
-//        titleRecipe.backgroundColor = .lightGray
         titleRecipe.numberOfLines = 10
         titleRecipe.textAlignment = .justified
         titleRecipe.textAlignment = .center
@@ -36,12 +40,20 @@ class MyOwnCell: UITableViewCell  {
         return titleRecipe
     } ()
     
+    lazy var favouritesButton : UIButton = {
+        let favouritesButton = UIButton ()
+        favouritesButton.setTitle("European", for: .normal)
+//        favouritesButton.addTarget(self, action: #selector(favouriteTapButton(_:)), for:.touchUpInside)
+        favouritesButton.backgroundColor = .systemBlue
+        return favouritesButton
+    }()
+    
     // MARK: - Castomize Cell
     
     func castomizeCell () {
         
-        contentView.backgroundColor = UIColor(red: 244/255, green: 201/255, blue: 70/255, alpha: 1)
-        contentView.layer.borderColor = UIColor.blue.cgColor
+        contentView.backgroundColor = UIColor(red: 240/255, green: 235/255, blue: 231/255, alpha: 1)
+        contentView.layer.borderColor = UIColor.gray.cgColor
         contentView.layer.borderWidth = 1
         
         

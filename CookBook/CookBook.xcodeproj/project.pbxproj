@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		5013E7D6293A21B100AE059E /* ExtensionCellConstrains.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5013E7D5293A21B100AE059E /* ExtensionCellConstrains.swift */; };
 		5013E7DA293CBB9F00AE059E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5013E7D9293CBB9F00AE059E /* LaunchScreen.storyboard */; };
-		502444802935E7C700816569 /* MyOwnCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5024447F2935E7C700816569 /* MyOwnCell.swift */; };
 		502444852935E81000816569 /* ExtensionSetupTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502444842935E81000816569 /* ExtensionSetupTableView.swift */; };
 		502444882935E82200816569 /* ExtensionSetupConstrains.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502444862935E82200816569 /* ExtensionSetupConstrains.swift */; };
 		502444892935E82200816569 /* ExtensionColorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502444872935E82200816569 /* ExtensionColorView.swift */; };
@@ -20,6 +19,7 @@
 		5024449A2935FDB400816569 /* FavouriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502444992935FDB400816569 /* FavouriteViewController.swift */; };
 		5024449C2935FF7700816569 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5024449B2935FF7700816569 /* UIColorExtension.swift */; };
 		502444A429362C2F00816569 /* CookBookRecipes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502444A329362C2F00816569 /* CookBookRecipes.swift */; };
+		50B1943B293F399700590745 /* MyOwnCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50B1943A293F399700590745 /* MyOwnCell.swift */; };
 		D86CB40829352F5500BC64C6 /* DeatilViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86CB40729352F5500BC64C6 /* DeatilViewController.swift */; };
 		D86CB40A29352F6600BC64C6 /* KitchenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86CB40929352F6600BC64C6 /* KitchenViewController.swift */; };
 		D86CB40C29352F7800BC64C6 /* FistScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86CB40B29352F7800BC64C6 /* FistScreenViewController.swift */; };
@@ -33,7 +33,6 @@
 /* Begin PBXFileReference section */
 		5013E7D5293A21B100AE059E /* ExtensionCellConstrains.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionCellConstrains.swift; sourceTree = "<group>"; };
 		5013E7D9293CBB9F00AE059E /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
-		5024447F2935E7C700816569 /* MyOwnCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyOwnCell.swift; sourceTree = "<group>"; };
 		502444842935E81000816569 /* ExtensionSetupTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionSetupTableView.swift; sourceTree = "<group>"; };
 		502444862935E82200816569 /* ExtensionSetupConstrains.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionSetupConstrains.swift; sourceTree = "<group>"; };
 		502444872935E82200816569 /* ExtensionColorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionColorView.swift; sourceTree = "<group>"; };
@@ -44,6 +43,7 @@
 		502444992935FDB400816569 /* FavouriteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavouriteViewController.swift; sourceTree = "<group>"; };
 		5024449B2935FF7700816569 /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		502444A329362C2F00816569 /* CookBookRecipes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CookBookRecipes.swift; sourceTree = "<group>"; };
+		50B1943A293F399700590745 /* MyOwnCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MyOwnCell.swift; path = "../../../../../Downloads/CookBook/CookBook/CookBook/Sources/Main Screen/MyOwnCell.swift"; sourceTree = "<group>"; };
 		D86CB40729352F5500BC64C6 /* DeatilViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeatilViewController.swift; sourceTree = "<group>"; };
 		D86CB40929352F6600BC64C6 /* KitchenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KitchenViewController.swift; sourceTree = "<group>"; };
 		D86CB40B29352F7800BC64C6 /* FistScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FistScreenViewController.swift; sourceTree = "<group>"; };
@@ -70,7 +70,7 @@
 		5024447E2935E7A200816569 /* TableViewCell */ = {
 			isa = PBXGroup;
 			children = (
-				5024447F2935E7C700816569 /* MyOwnCell.swift */,
+				50B1943A293F399700590745 /* MyOwnCell.swift */,
 				5013E7D5293A21B100AE059E /* ExtensionCellConstrains.swift */,
 			);
 			name = TableViewCell;
@@ -289,7 +289,6 @@
 				D89572062937CFAD005412E7 /* DetailRecipe.swift in Sources */,
 				5024449C2935FF7700816569 /* UIColorExtension.swift in Sources */,
 				502444892935E82200816569 /* ExtensionColorView.swift in Sources */,
-				502444802935E7C700816569 /* MyOwnCell.swift in Sources */,
 				502444852935E81000816569 /* ExtensionSetupTableView.swift in Sources */,
 				502444882935E82200816569 /* ExtensionSetupConstrains.swift in Sources */,
 				D86CB40C29352F7800BC64C6 /* FistScreenViewController.swift in Sources */,
@@ -299,6 +298,7 @@
 				5024448E2935E85700816569 /* HeaderView.swift in Sources */,
 				5013E7D6293A21B100AE059E /* ExtensionCellConstrains.swift in Sources */,
 				D8C72DD62933F39000F43DAE /* AppDelegate.swift in Sources */,
+				50B1943B293F399700590745 /* MyOwnCell.swift in Sources */,
 				D86CB40829352F5500BC64C6 /* DeatilViewController.swift in Sources */,
 				502444922935E93000816569 /* CellModel.swift in Sources */,
 				502444952935F9F200816569 /* TabBarController.swift in Sources */,
