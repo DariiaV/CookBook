@@ -13,13 +13,13 @@ class TabBarController: UITabBarController {
         super.viewDidLoad()
         generateTabBar()
         setTabBarAppearance()
-    }
-    
+        tabBarController?.tabBar.isHidden = false
+    }    
     private func generateTabBar() {
         let kitchenVC = UINavigationController(rootViewController: KitchenViewController())
         viewControllers = [
             generateVC(
-                viewController: Name3(),
+                viewController: FistScreenViewController(),
                 title: "Home",
                 image: UIImage(systemName: "house.fill")
             ),
