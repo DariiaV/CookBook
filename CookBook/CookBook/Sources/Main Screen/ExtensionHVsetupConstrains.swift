@@ -12,7 +12,7 @@ extension HeaderView {
         self.addSubview(germanButton)
         self.addSubview(koreanButton)
     }
-   
+    
     func setupConstraints () {
         
         welcomeTitle.translatesAutoresizingMaskIntoConstraints = false
@@ -64,15 +64,14 @@ extension HeaderView {
             europeanButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: .europeanButtonTrailingAnchor),
             europeanButton.heightAnchor.constraint(equalToConstant: .europeanButtonHeightAnchor)])
         
-
-            }
-        
-        func configureView() {
-            setupView()
-            setupConstraints()
-        }
     }
     
-    
+    func configureView() {
+        setupView()
+        setupConstraints()
+    }
+}
+
+
 
 

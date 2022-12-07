@@ -6,7 +6,7 @@ extension CGFloat {
     static let imageViewButtonLeadingAnchor: CGFloat = 0
     static let imageViewButtonTrailingAnchor: CGFloat = -0
     static let imageViewButtonHeightAnchor : CGFloat = 1
-
+    
     static let nextButtonTopAnchor: CGFloat = 410
     static let nextButtonLeadingAnchor: CGFloat = 40
     static let nextButtonTrailingAnchor: CGFloat = -40
@@ -16,7 +16,7 @@ extension CGFloat {
     static let commandLabelLeadingAnchor: CGFloat = 40
     static let commandLabelTrailingAnchor: CGFloat = -40
     static let commandLabelHeightAnchor : CGFloat = 60
-
+    
 }
 
 class FistScreenViewController: UIViewController {
@@ -26,17 +26,16 @@ class FistScreenViewController: UIViewController {
         configureViewFistScreen()
         view.backgroundColor = UIColor(red: 60/255, green: 64/255, blue: 63/255, alpha: 1)
         
-    
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.tabBarController?.tabBar.isHidden = true
-    }
-//    override func viewWillDisappear(_ animated: Bool) {
-//        super.viewWillDisappear(animated)
-//        self.tabBarController?.tabBar.isHidden = false
+//    override func viewWillAppear(_ animated: Bool) {
+//        super.viewWillAppear(animated)
+//        self.tabBarController?.tabBar.isHidden = true
 //    }
+    //    override func viewWillDisappear(_ animated: Bool) {
+    //        super.viewWillDisappear(animated)
+    //        self.tabBarController?.tabBar.isHidden = false
+    //    }
     
     lazy var nextButton : UIButton = {
         
@@ -76,9 +75,8 @@ class FistScreenViewController: UIViewController {
         self.navigationController?.pushViewController(nextScreen, animated: true)
         
         print("Start cooking")
-
+        
     }
-    
 }
 
 extension FistScreenViewController {
