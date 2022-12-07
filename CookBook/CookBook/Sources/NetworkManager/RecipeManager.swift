@@ -18,6 +18,8 @@ enum Cuisine: String {
     case italian = "Italian"
     case japanese = "Japanese"
     case european = "European"
+    case german = "German"
+    case korean = "Korean"
 }
 
 struct RecipeManager {
@@ -30,9 +32,9 @@ struct RecipeManager {
     var delegate: RecipeManagerDelegate?
     
     private let cache = NSCache<NSString, UIImage>()
-    private let recipeURL = "https://api.spoonacular.com/recipes/%@/information?includeNutrition=false&apiKey=68dacdce560d4598baf62743ea86a9a7"
+    private let recipeURL = "https://api.spoonacular.com/recipes/%@/information?includeNutrition=false&apiKey=e6ffd13c724e49f49a0a32615528c596"
     
-    private let cuisinesURL = "https://api.spoonacular.com/recipes/complexSearch?cuisine=%@&apiKey=68dacdce560d4598baf62743ea86a9a7"
+    private let cuisinesURL = "https://api.spoonacular.com/recipes/complexSearch?cuisine=%@&apiKey=e6ffd13c724e49f49a0a32615528c596"
   
  
     func fetchDetailRecipe(id: String?) {

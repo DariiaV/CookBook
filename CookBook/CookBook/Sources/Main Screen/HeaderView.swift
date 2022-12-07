@@ -20,23 +20,35 @@ extension CGFloat {
     
     static let americanButtonTopAnchor: CGFloat = 70
     static let americanButtonLeadingAnchor: CGFloat = 10
-    static let americanButtonTrailingAnchor: CGFloat = -210
+    static let americanButtonTrailingAnchor: CGFloat = -265
     static let americanButtonHeightAnchor : CGFloat = 50
     
     static let italianButtonTopAnchor: CGFloat = 60
     static let italianButtonLeadingAnchor: CGFloat = 10
-    static let italianButtonTrailingAnchor: CGFloat = -210
+    static let italianButtonTrailingAnchor: CGFloat = -265
     static let italianButtonHeightAnchor : CGFloat = 50
     
     static let japaneseButtonTopAnchor: CGFloat = 70
-    static let japeneseButtonLeadingAnchor: CGFloat = 210
-    static let japaneseButtonTrailingAnchor: CGFloat = -10
+    static let japeneseButtonLeadingAnchor: CGFloat = 135
+    static let japaneseButtonTrailingAnchor: CGFloat = -140
     static let japaneseButtonHeightAnchor : CGFloat = 50
     
-    static let greecButtonTopAnchor: CGFloat = 60
-    static let greecButtonLeadingAnchor: CGFloat = 210
-    static let greecButtonTrailingAnchor: CGFloat = -10
-    static let greecButtonHeightAnchor : CGFloat = 50
+    static let koreanButtonTopAnchor: CGFloat = 60
+    static let koreanButtonTopAnchorButtonLeadingAnchor: CGFloat = 135
+    static let koreanButtonTopAnchorButtonTrailingAnchor: CGFloat = -140
+    static let koreanButtonTopAnchorButtonHeightAnchor : CGFloat = 50
+    
+    static let germanButtonTopAnchor: CGFloat = 70
+    static let germanButtonLeadingAnchor: CGFloat = 260
+    static let germanButtonTrailingAnchor: CGFloat = -10
+    static let germanButtonHeightAnchor : CGFloat = 50
+    
+    static let europeanButtonTopAnchor: CGFloat = 60
+    static let europeanButtonLeadingAnchor: CGFloat = 260
+    static let europeanButtonTrailingAnchor: CGFloat = -10
+    static let europeanButtonHeightAnchor : CGFloat = 50
+    
+ 
 }
 
 class HeaderView : UIView {
@@ -115,6 +127,37 @@ class HeaderView : UIView {
         return europeanButton
     }()
     
+    lazy var germanButton : UIButton = {
+        let germanButton = UIButton ()
+        germanButton.setTitle("German", for: .normal)
+        germanButton.setTitleColor(UIColor.black, for: .normal)
+        germanButton.layer.cornerRadius = 14
+        germanButton.tag = 3
+        germanButton.addTarget(self, action: #selector(didTapButtonGerman(_:)), for:.touchUpInside)
+        germanButton.layer.masksToBounds = true
+        germanButton.layer.cornerRadius = 20
+        germanButton.layer.borderWidth = 1
+        germanButton.layer.borderColor = UIColor.gray.cgColor
+        germanButton.backgroundColor = .white
+        return germanButton
+    }()
+    
+    lazy var koreanButton : UIButton = {
+        let koreanButton = UIButton ()
+        koreanButton.setTitle("Korean", for: .normal)
+        koreanButton.setTitleColor(UIColor.black, for: .normal)
+        koreanButton.layer.cornerRadius = 14
+        koreanButton.tag = 3
+        koreanButton.addTarget(self, action: #selector(didTapButtonKorean(_:)), for:.touchUpInside)
+        koreanButton.layer.masksToBounds = true
+        koreanButton.layer.cornerRadius = 20
+        koreanButton.layer.borderWidth = 1
+        koreanButton.layer.borderColor = UIColor.gray.cgColor
+        koreanButton.backgroundColor = .white
+        return koreanButton
+    }()
+    
+    
     // MARK: - Initialization
     
     override init(frame: CGRect) {
@@ -135,10 +178,23 @@ class HeaderView : UIView {
             delegate?.didTapCuisineButton(cuisine: .italian)
         case 2:
             delegate?.didTapCuisineButton(cuisine: .japanese)
+        case 3:
+            delegate?.didTapCuisineButton(cuisine: .european)
+        
         default:
             delegate?.didTapCuisineButton(cuisine: .european)
         }
         print("Выбор кухни работает")
     }
+    
+    @objc private func didTapButtonGerman(_ selector: UIButton) {
+        delegate?.didTapCuisineButton(cuisine: .german)
+        print("Выбор кухни работает")
+    }
+    @objc private func didTapButtonKorean(_ selector: UIButton) {
+        delegate?.didTapCuisineButton(cuisine: .korean)
+        print("Выбор кухни работает")
+    }
         
 }
+

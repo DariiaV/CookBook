@@ -16,30 +16,27 @@ extension CGFloat {
     static let commandLabelLeadingAnchor: CGFloat = 40
     static let commandLabelTrailingAnchor: CGFloat = -40
     static let commandLabelHeightAnchor : CGFloat = 60
-    
-    
-    
+
 }
 
 class FistScreenViewController: UIViewController {
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureViewFistScreen()
         view.backgroundColor = UIColor(red: 60/255, green: 64/255, blue: 63/255, alpha: 1)
-        navigationController?.navigationBar.prefersLargeTitles = true
-//        self.tabBarController?.tabBar.isHidden = true
+        
+    
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.tabBarController?.tabBar.isHidden = true
     }
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        self.tabBarController?.tabBar.isHidden = false
-    }
+//    override func viewWillDisappear(_ animated: Bool) {
+//        super.viewWillDisappear(animated)
+//        self.tabBarController?.tabBar.isHidden = false
+//    }
     
     lazy var nextButton : UIButton = {
         
@@ -76,13 +73,10 @@ class FistScreenViewController: UIViewController {
     @objc func goToNextScreen() {
         
         let nextScreen = KitchenViewController()
-        nextScreen.modalPresentationStyle = .fullScreen
-        self.present(nextScreen, animated: true)
+        self.navigationController?.pushViewController(nextScreen, animated: true)
+        
         print("Start cooking")
 
-      
-   
-//        navigationController?.pushViewController(nextScreen, animated: true)
     }
     
 }
@@ -114,7 +108,6 @@ extension FistScreenViewController {
             nextButton.heightAnchor.constraint(equalToConstant: .nextButtonHeightAnchor)
         ])
         
-      
     }
     
     func setupFirstScreen() {

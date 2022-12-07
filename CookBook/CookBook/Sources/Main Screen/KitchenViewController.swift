@@ -30,9 +30,8 @@ class KitchenViewController: UIViewController  {
         setupTableView()
         setupConstraints()
         colorView()
-       
         
-        manager.fetchCuisineRecipe(cuisine: .american)
+        manager.fetchCuisineRecipe(cuisine: .european)
     }
     
 //    override func viewWillAppear(_ animated: Bool) {
