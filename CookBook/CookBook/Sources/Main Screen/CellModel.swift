@@ -9,9 +9,9 @@ import UIKit
 
 struct CellModel {
     
-    let index:String
-    let titleRecipe: String
-    let imageRecipe : String
+//    let index:String
+//    let titleRecipe: String
+//    let imageRecipe : String
 }
     
 

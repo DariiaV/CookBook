@@ -8,13 +8,13 @@
 import UIKit
 
 class TabBarController: UITabBarController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         generateTabBar()
         setTabBarAppearance()
         tabBarController?.tabBar.isHidden = false
-    }    
+    }
     private func generateTabBar() {
         let kitchenVC = UINavigationController(rootViewController: KitchenViewController())
         viewControllers = [
@@ -28,7 +28,7 @@ class TabBarController: UITabBarController {
                 title: "Kitchen",
                 image: UIImage(systemName: "cooktop.fill")
             ),
-          
+            
             generateVC(
                 viewController: FavouriteViewController(),
                 title: "Favourite",

@@ -15,11 +15,9 @@ extension KitchenViewController {
         view.addSubview(headerView)
         view.addSubview(myTableView)
 
-        
         headerView.translatesAutoresizingMaskIntoConstraints = false
         myTableView.translatesAutoresizingMaskIntoConstraints = false
 
-        
         NSLayoutConstraint.activate([
             headerView.topAnchor.constraint(equalTo: view.topAnchor,constant: 10),
             headerView.trailingAnchor.constraint(equalTo: view.trailingAnchor),

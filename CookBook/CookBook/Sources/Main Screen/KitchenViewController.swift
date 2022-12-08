@@ -33,15 +33,6 @@ class KitchenViewController: UIViewController  {
         
         manager.fetchCuisineRecipe(cuisine: .european)
     }
-    
-//    override func viewWillAppear(_ animated: Bool) {
-//        super.viewWillAppear(animated)
-//        self.tabBarController?.tabBar.isHidden = false
-//    }
-//    override func viewWillDisappear(_ animated: Bool) {
-//        super.viewWillDisappear(animated)
-//        self.tabBarController?.tabBar.isHidden = false
-//    }
 }
 
 extension KitchenViewController: UITableViewDataSource {
@@ -50,7 +41,7 @@ extension KitchenViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         cuisineRecipes.count
-
+        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -58,18 +49,17 @@ extension KitchenViewController: UITableViewDataSource {
             fatalError("Creating cell from HotelsListViewController failed")
             
         }
-                
+        
         cell.titleRecipe.text = cuisineRecipes[indexPath.row].title
-            
+        
         self.manager.downloadImage(from:cuisineRecipes[indexPath.row].image!) { [weak self] image in
             DispatchQueue.main.async {
                 cell.imageRecipe.image = image
             }
         }
-
+        
         return cell
     }
-    
 }
 
 extension KitchenViewController: UITableViewDelegate {
@@ -78,7 +68,7 @@ extension KitchenViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-
+        
         let detailVC = DetailViewController()
         detailVC.id = cuisineRecipes[indexPath.row].id
         navigationController?.pushViewController(detailVC, animated: true)
@@ -86,7 +76,7 @@ extension KitchenViewController: UITableViewDelegate {
 }
 
 extension KitchenViewController: RecipeManagerDelegate {
-       
+    
     // MARK: - RecipeManagerDelegate
     
     func didFailWithError(error: String) {
@@ -120,6 +110,4 @@ extension KitchenViewController: HeaderViewDelegate {
     func didTapCuisineButton(cuisine: Cuisine) {
         manager.fetchCuisineRecipe(cuisine: cuisine)
     }
-    
-    
 }

@@ -48,7 +48,6 @@ extension CGFloat {
     static let europeanButtonTrailingAnchor: CGFloat = -10
     static let europeanButtonHeightAnchor : CGFloat = 50
     
- 
 }
 
 class HeaderView : UIView {
@@ -180,12 +179,13 @@ class HeaderView : UIView {
             delegate?.didTapCuisineButton(cuisine: .japanese)
         case 3:
             delegate?.didTapCuisineButton(cuisine: .european)
-        
+            
         default:
             delegate?.didTapCuisineButton(cuisine: .european)
         }
         print("Выбор кухни работает")
     }
+    // MARK: - Action
     
     @objc private func didTapButtonGerman(_ selector: UIButton) {
         delegate?.didTapCuisineButton(cuisine: .german)
@@ -195,6 +195,6 @@ class HeaderView : UIView {
         delegate?.didTapCuisineButton(cuisine: .korean)
         print("Выбор кухни работает")
     }
-        
+    
 }
 
