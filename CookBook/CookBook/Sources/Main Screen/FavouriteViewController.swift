@@ -37,10 +37,11 @@ class FavouriteViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: indentifire, for: indexPath)
-        cell.textLabel?.text = "section = \(indexPath.section) cell = \(indexPath.row)"
-        return cell
+        let cellFavourite = tableView.dequeueReusableCell(withIdentifier: indentifire, for: indexPath)
+        cellFavourite.textLabel?.text = "(addedFavourite)"
+        return cellFavourite
     }
+    
     //MARK: - UITableViewDelegate
      func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100.0

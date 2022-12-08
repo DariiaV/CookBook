@@ -49,6 +49,8 @@ extension KitchenViewController: UITableViewDataSource {
             fatalError("Creating cell from HotelsListViewController failed")
             
         }
+        var item = cuisineRecipes[indexPath.row]
+        cell.setModel(cuisineRecipe: item)
         
         cell.titleRecipe.text = cuisineRecipes[indexPath.row].title
         
@@ -71,6 +73,7 @@ extension KitchenViewController: UITableViewDelegate {
         
         let detailVC = DetailViewController()
         detailVC.id = cuisineRecipes[indexPath.row].id
+        
         navigationController?.pushViewController(detailVC, animated: true)
     }
 }
