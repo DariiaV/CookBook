@@ -294,6 +294,7 @@
 				D86CB40C29352F7800BC64C6 /* FistScreenViewController.swift in Sources */,
 				D86DC3CF293A9264005A8797 /* String+Extension.swift in Sources */,
 				5024449A2935FDB400816569 /* FavouriteViewController.swift in Sources */,
+				D83A3D212941A1F100AAE6D1 /* MyOwnCell.swift in Sources */,
 				502444A429362C2F00816569 /* CookBookRecipes.swift in Sources */,
 				5024448E2935E85700816569 /* HeaderView.swift in Sources */,
 				5013E7D6293A21B100AE059E /* ExtensionCellConstrains.swift in Sources */,
