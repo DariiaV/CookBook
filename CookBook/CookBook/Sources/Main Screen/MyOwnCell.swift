@@ -12,12 +12,6 @@ extension CGFloat {
     static let titleRecipeLabelLeadingAnchor: CGFloat = 10
     static let titleRecipeLabelTrailingAnchor: CGFloat = -120
     static let titleRecipeLabelHeightAnchor : CGFloat = -85
-    
-    static let titleRecipeLabelTopAnchor: CGFloat = 130
-    static let titleRecipeLabelLeadingAnchor: CGFloat = 10
-    static let titleRecipeLabelTrailingAnchor: CGFloat = -120
-    static let titleRecipeLabelHeightAnchor : CGFloat = -85
-    
 }
 
 class MyOwnCell: UITableViewCell  {
