@@ -179,7 +179,7 @@ class HeaderView : UIView {
             delegate?.didTapCuisineButton(cuisine: .japanese)
         case 3:
             delegate?.didTapCuisineButton(cuisine: .european)
-        
+            
         default:
             delegate?.didTapCuisineButton(cuisine: .european)
         }
@@ -195,6 +195,6 @@ class HeaderView : UIView {
         delegate?.didTapCuisineButton(cuisine: .korean)
         print("Выбор кухни работает")
     }
-        
+    
 }
 

@@ -33,15 +33,6 @@ class KitchenViewController: UIViewController  {
         
         manager.fetchCuisineRecipe(cuisine: .european)
     }
-    
-        override func viewWillAppear(_ animated: Bool) {
-            super.viewWillAppear(animated)
-            self.tabBarController?.tabBar.isHidden = false
-        }
-    //    override func viewWillDisappear(_ animated: Bool) {
-    //        super.viewWillDisappear(animated)
-    //        self.tabBarController?.tabBar.isHidden = false
-    //    }
 }
 
 extension KitchenViewController: UITableViewDataSource {
@@ -69,7 +60,6 @@ extension KitchenViewController: UITableViewDataSource {
         
         return cell
     }
-    
 }
 
 extension KitchenViewController: UITableViewDelegate {
@@ -120,6 +110,4 @@ extension KitchenViewController: HeaderViewDelegate {
     func didTapCuisineButton(cuisine: Cuisine) {
         manager.fetchCuisineRecipe(cuisine: cuisine)
     }
-    
-    
 }

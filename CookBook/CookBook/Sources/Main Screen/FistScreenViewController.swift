@@ -28,15 +28,6 @@ class FistScreenViewController: UIViewController {
         
     }
     
-//    override func viewWillAppear(_ animated: Bool) {
-//        super.viewWillAppear(animated)
-//        self.tabBarController?.tabBar.isHidden = true
-//    }
-    //    override func viewWillDisappear(_ animated: Bool) {
-    //        super.viewWillDisappear(animated)
-    //        self.tabBarController?.tabBar.isHidden = false
-    //    }
-    
     lazy var nextButton : UIButton = {
         
         let nextButton = UIButton()
@@ -60,12 +51,11 @@ class FistScreenViewController: UIViewController {
         commandLabel.textColor = .black
         return commandLabel
     } ()
+    
     lazy var imageViewFirstScreen : UIImageView = {
         let imageViewFirstScreen = UIImageView()
         imageViewFirstScreen.image = UIImage(named: "cooking")
         imageViewFirstScreen.contentMode = .scaleAspectFill
-        imageViewFirstScreen.contentMode = .scaleAspectFill
-        
         return imageViewFirstScreen
     } ()
     
