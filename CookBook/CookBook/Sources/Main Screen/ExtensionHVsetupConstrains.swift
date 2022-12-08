@@ -9,6 +9,8 @@ extension HeaderView {
         self.addSubview(italianButton)
         self.addSubview(japaneseButton)
         self.addSubview(europeanButton)
+        self.addSubview(germanButton)
+        self.addSubview(koreanButton)
     }
     
     func setupConstraints () {
@@ -18,6 +20,8 @@ extension HeaderView {
         italianButton.translatesAutoresizingMaskIntoConstraints = false
         japaneseButton.translatesAutoresizingMaskIntoConstraints = false
         europeanButton.translatesAutoresizingMaskIntoConstraints = false
+        germanButton.translatesAutoresizingMaskIntoConstraints = false
+        koreanButton.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
             welcomeTitle.topAnchor.constraint(equalTo: self.topAnchor, constant: .welcomeTitleTopAncor),
@@ -37,25 +41,37 @@ extension HeaderView {
             italianButton.heightAnchor.constraint(equalToConstant: .italianButtonHeightAnchor)])
         
         NSLayoutConstraint.activate([
+            koreanButton.topAnchor.constraint(equalTo: japaneseButton.topAnchor, constant:.koreanButtonTopAnchor),
+            koreanButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: .koreanButtonTopAnchorButtonLeadingAnchor),
+            koreanButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: .koreanButtonTopAnchorButtonTrailingAnchor),
+            koreanButton.heightAnchor.constraint(equalToConstant: .koreanButtonTopAnchorButtonHeightAnchor)])
+        
+        NSLayoutConstraint.activate([
+            germanButton.topAnchor.constraint(equalTo: welcomeTitle.topAnchor, constant:.germanButtonTopAnchor),
+            germanButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: .germanButtonLeadingAnchor),
+            germanButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: .germanButtonTrailingAnchor),
+            germanButton.heightAnchor.constraint(equalToConstant: .germanButtonHeightAnchor)])
+        
+        NSLayoutConstraint.activate([
             japaneseButton.topAnchor.constraint(equalTo: welcomeTitle.topAnchor, constant:.japaneseButtonTopAnchor),
             japaneseButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: .japeneseButtonLeadingAnchor),
             japaneseButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: .japaneseButtonTrailingAnchor),
             japaneseButton.heightAnchor.constraint(equalToConstant: .japaneseButtonHeightAnchor)])
         
         NSLayoutConstraint.activate([
-            europeanButton.topAnchor.constraint(equalTo: japaneseButton.topAnchor, constant:.greecButtonTopAnchor),
-            europeanButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: .greecButtonLeadingAnchor),
-            europeanButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: .greecButtonTrailingAnchor),
-            europeanButton.heightAnchor.constraint(equalToConstant: .greecButtonHeightAnchor)])
+            europeanButton.topAnchor.constraint(equalTo: japaneseButton.topAnchor, constant:.europeanButtonTopAnchor),
+            europeanButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: .europeanButtonLeadingAnchor),
+            europeanButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: .europeanButtonTrailingAnchor),
+            europeanButton.heightAnchor.constraint(equalToConstant: .europeanButtonHeightAnchor)])
         
-
-            }
-        
-        func configureView() {
-            setupView()
-            setupConstraints()
-        }
     }
     
-    
+    func configureView() {
+        setupView()
+        setupConstraints()
+    }
+}
+
+
+
 

@@ -19,7 +19,7 @@ final class DetailViewController: UIViewController {
 
     private lazy var image: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: "patato")
+        imageView.image = UIImage(named: "")
         imageView.contentMode = .scaleAspectFill
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
@@ -27,7 +27,7 @@ final class DetailViewController: UIViewController {
 
     private lazy var nameLabel: UILabel = {
         let label = UILabel()
-        label.text = "Жареная картошечка с укропом и лисичками"
+        label.text = ""
         label.font = .systemFont(ofSize: 21)
         label.textAlignment = .center
         label.numberOfLines = 2
@@ -43,10 +43,10 @@ final class DetailViewController: UIViewController {
 
     private lazy var descriptionLabel: UILabel = {
            let label = UILabel()
-           label.text = "чистим жарим кушаем"
+           label.text = ""
            label.textAlignment = .left
            label.numberOfLines = 10
-           label.backgroundColor = .red
+        label.backgroundColor = .systemBackground
            label.translatesAutoresizingMaskIntoConstraints = false
            return label
        }()

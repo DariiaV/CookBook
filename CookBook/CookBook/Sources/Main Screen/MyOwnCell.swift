@@ -1,55 +1,74 @@
+//
+//  MyOwnCell.swift
+//  CookBook
+//
+//  Created by Александр Косяков on 08.12.2022.
+//
+
 import UIKit
 
 // MARK: - Constant Constraints
 
 extension CGFloat {
+    static let imageRecipeTopAnchor: CGFloat = 20
+    static let imageRecipeLeadingAnchor: CGFloat = 80
+    static let imageRecipeTrailingAnchor: CGFloat = -180
+    static let imageRecipeHeightAnchor: CGFloat = -70
     
-    static let titleRecipeLabelTopAnchor: CGFloat = 7
-    static let titleRecipeLabelLeadingAnchor: CGFloat = 17
-    static let titleRecipeLabelTrailingAnchor: CGFloat = -250
-    static let titleRecipeLabelHeightAnchor : CGFloat = -75
+    static let titleRecipeLabelTopAnchor: CGFloat = 130
+    static let titleRecipeLabelLeadingAnchor: CGFloat = 10
+    static let titleRecipeLabelTrailingAnchor: CGFloat = -120
+    static let titleRecipeLabelHeightAnchor : CGFloat = -85
     
-    static let imageRecipeTopAnchor: CGFloat = 70
-    static let imageRecipeLeadingAnchor: CGFloat = 17
-    static let imageRecipeTrailingAnchor: CGFloat = -250
-    static let imageRecipeHeightAnchor: CGFloat = -75
+    static let favouritesButtonLabelTopAnchor: CGFloat = 16
+    static let favouritesButtonLabelLeadingAnchor: CGFloat = 330
+    static let favouritesButtonLabelTrailingAnchor: CGFloat = -130
+    static let favouritesButtonLabelHeightAnchor : CGFloat = -200
     
- 
 }
 
-class MyOwnCell: UITableViewCell  {
+final class MyOwnCell: UITableViewCell  {
     
-    lazy var titleRecipe : UILabel = {
-        let titleRecipe = UILabel()
-        titleRecipe.text = "1"
-        titleRecipe.font = UIFont.systemFont(ofSize: 30)
-        titleRecipe.font = UIFont.boldSystemFont(ofSize: 30.0)
-//        titleRecipe.textAlignment = .center
-        titleRecipe.textColor = .black
-        return titleRecipe
-    } ()
+    private var countTap = 0
     
     lazy var imageRecipe : UIImageView = {
         let imageRecipe = UIImageView ()
-        imageRecipe.image = UIImage(named: "")
+        imageRecipe.backgroundColor = .red
         imageRecipe.contentMode = .scaleAspectFill
         return imageRecipe
     }()
     
-  
+    lazy var titleRecipe : UILabel = {
+        let titleRecipe = UILabel()
+        titleRecipe.font = UIFont.systemFont(ofSize: 14)
+        titleRecipe.font = UIFont.boldSystemFont(ofSize: 14)
+        titleRecipe.numberOfLines = 10
+        titleRecipe.textAlignment = .justified
+        titleRecipe.textAlignment = .center
+        titleRecipe.textColor = .black
+        return titleRecipe
+    } ()
+    
+    lazy var favouritesButton : UIButton = {
+        let favouritesButton = UIButton ()
+        favouritesButton.setImage(UIImage(named: "star(base).png"), for: .normal)
+        favouritesButton.setImage(UIImage(named: "star.png"), for: .selected)
+        favouritesButton.setTitleColor(UIColor.black, for: .normal)
+        favouritesButton.addTarget(self, action: #selector(favouritesTapButton(_:)), for:.touchUpInside)
+        return favouritesButton
+    }()
+    
     // MARK: - Castomize Cell
     
     func castomizeCell () {
         
-        contentView.backgroundColor = .clear
-        contentView.layer.borderColor = UIColor.blue.cgColor
-//        contentView.layer.cornerRadius = 50
+        contentView.backgroundColor = UIColor(red: 240/255, green: 235/255, blue: 231/255, alpha: 1)
+        contentView.layer.borderColor = UIColor.gray.cgColor
         contentView.layer.borderWidth = 1
-        
     }
     
     func setupContent(model: CellModel) {
-     
+        
     }
     
     // MARK: - Initialization
@@ -66,8 +85,16 @@ class MyOwnCell: UITableViewCell  {
         fatalError("init(coder:) has not been implemented")
     }
     
-  
-    
+    @objc private func favouritesTapButton(_ sender: UIButton!) {
+        
+        countTap += 1
+        
+        if countTap % 2 != 0 {
+            print("Добавлено в избранное")
+            favouritesButton.isSelected = true
+        } else {
+            print("Удаленно из избранного")
+            favouritesButton.isSelected = false
+        }
+    }
 }
-
-
