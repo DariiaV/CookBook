@@ -1,3 +1,10 @@
+//
+//  MyOwnCell.swift
+//  CookBook
+//
+//  Created by Александр Косяков on 08.12.2022.
+//
+
 import UIKit
 
 // MARK: - Constant Constraints
@@ -13,14 +20,16 @@ extension CGFloat {
     static let titleRecipeLabelTrailingAnchor: CGFloat = -120
     static let titleRecipeLabelHeightAnchor : CGFloat = -85
     
-    static let titleRecipeLabelTopAnchor: CGFloat = 130
-    static let titleRecipeLabelLeadingAnchor: CGFloat = 10
-    static let titleRecipeLabelTrailingAnchor: CGFloat = -120
-    static let titleRecipeLabelHeightAnchor : CGFloat = -85
+    static let favouritesButtonLabelTopAnchor: CGFloat = 16
+    static let favouritesButtonLabelLeadingAnchor: CGFloat = 330
+    static let favouritesButtonLabelTrailingAnchor: CGFloat = -130
+    static let favouritesButtonLabelHeightAnchor : CGFloat = -200
     
 }
 
-class MyOwnCell: UITableViewCell  {
+final class MyOwnCell: UITableViewCell  {
+    
+    private var countTap = 0
     
     lazy var imageRecipe : UIImageView = {
         let imageRecipe = UIImageView ()
@@ -42,9 +51,10 @@ class MyOwnCell: UITableViewCell  {
     
     lazy var favouritesButton : UIButton = {
         let favouritesButton = UIButton ()
-        favouritesButton.setTitle("European", for: .normal)
-//        favouritesButton.addTarget(self, action: #selector(favouriteTapButton(_:)), for:.touchUpInside)
-        favouritesButton.backgroundColor = .systemBlue
+        favouritesButton.setImage(UIImage(named: "star(base).png"), for: .normal)
+        favouritesButton.setImage(UIImage(named: "star.png"), for: .selected)
+        favouritesButton.setTitleColor(UIColor.black, for: .normal)
+        favouritesButton.addTarget(self, action: #selector(favouritesTapButton(_:)), for:.touchUpInside)
         return favouritesButton
     }()
     
@@ -55,12 +65,10 @@ class MyOwnCell: UITableViewCell  {
         contentView.backgroundColor = UIColor(red: 240/255, green: 235/255, blue: 231/255, alpha: 1)
         contentView.layer.borderColor = UIColor.gray.cgColor
         contentView.layer.borderWidth = 1
-        
-        
     }
     
     func setupContent(model: CellModel) {
-     
+        
     }
     
     // MARK: - Initialization
@@ -76,7 +84,17 @@ class MyOwnCell: UITableViewCell  {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
+    
+    @objc private func favouritesTapButton(_ sender: UIButton!) {
+        
+        countTap += 1
+        
+        if countTap % 2 != 0 {
+            print("Добавлено в избранное")
+            favouritesButton.isSelected = true
+        } else {
+            print("Удаленно из избранного")
+            favouritesButton.isSelected = false
+        }
+    }
 }
-
-
