@@ -30,12 +30,6 @@ extension CGFloat {
 final class MyOwnCell: UITableViewCell  {
     
     private var countTap = 0
-    var model: CuisineRecipe
-    
-    
-    func setModel(cuisineRecipe: CuisineRecipe) {
-        model = cuisineRecipe
-    }
     
     lazy var imageRecipe : UIImageView = {
         let imageRecipe = UIImageView ()
@@ -98,22 +92,25 @@ final class MyOwnCell: UITableViewCell  {
             addedFavourite = ("Добавлено в избранное")
             print(addedFavourite)
             favouritesButton.isSelected = true
-            model.isFavorit = true
+            model?.isFavorit = true
             let appDelegate = UIApplication.shared.delegate as! AppDelegate
-            if (appDelegate.favoriteRecipes.contains(where: model.isFavorit {
-                appDelegate.favoriteRecipes.append(model)
+            //if (!appDelegate.favoriteRecipes.contains(where: model)) {
+                appDelegate.favoriteRecipes.append(model!)
             print(appDelegate.favoriteRecipes[0])
             // добавить проверку содержания элемента в массиве
-            
-            } else {
+           // }
+        } else {
             //удалять элемент из массива appDelegate.favoriteRecipes
             addedFavourite = ("Удаленно из избранного")
             print(addedFavourite)
             favouritesButton.isSelected = false
-            model.isFavorit = false
-            appDelegate.favoriteRecipes.remove(at: model)
+            model?.isFavorit = false
         }
 
     }
-}
+    var model: CuisineRecipe?
+    
+    func setModel(cuisineRecipe: CuisineRecipe) {
+        model = cuisineRecipe
+    }
 }
