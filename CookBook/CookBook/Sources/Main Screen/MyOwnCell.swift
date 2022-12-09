@@ -75,7 +75,6 @@ final class MyOwnCell: UITableViewCell  {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
         configureView()
         castomizeCell()
         
@@ -86,15 +85,32 @@ final class MyOwnCell: UITableViewCell  {
     }
     
     @objc private func favouritesTapButton(_ sender: UIButton!) {
-        
+        var addedFavourite = ""
         countTap += 1
         
         if countTap % 2 != 0 {
-            print("Добавлено в избранное")
+            addedFavourite = ("Добавлено в избранное")
+            print(addedFavourite)
             favouritesButton.isSelected = true
+            model?.isFavorit = true
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            //if (!appDelegate.favoriteRecipes.contains(where: model)) {
+                appDelegate.favoriteRecipes.append(model!)
+            print(appDelegate.favoriteRecipes[0])
+            // добавить проверку содержания элемента в массиве
+           // }
         } else {
-            print("Удаленно из избранного")
+            //удалять элемент из массива appDelegate.favoriteRecipes
+            addedFavourite = ("Удаленно из избранного")
+            print(addedFavourite)
             favouritesButton.isSelected = false
+            model?.isFavorit = false
         }
+
+    }
+    var model: CuisineRecipe?
+    
+    func setModel(cuisineRecipe: CuisineRecipe) {
+        model = cuisineRecipe
     }
 }

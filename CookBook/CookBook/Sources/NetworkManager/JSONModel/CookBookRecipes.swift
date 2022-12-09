@@ -22,6 +22,7 @@ struct CuisineRecipe: Decodable {
     var id: Int?
     var title: String?
     var image: String?
+    var isFavorit: Bool?
 }
 
 
