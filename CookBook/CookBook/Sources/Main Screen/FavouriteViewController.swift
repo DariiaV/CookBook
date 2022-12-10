@@ -1,50 +1,105 @@
 import UIKit
 
-class FavouriteViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-
-    var myTableView = UITableView()
-    let indentifire = "MyCell"
+class FavouriteViewController: UIViewController {
+    
+    private let tableView = UITableView()
+    private lazy var emptyStateView = EmptyStateView()
+    private let identifier = "MyCell"
+    private let storageManager = StorageManager.shared
+    private var favoriteItems = [Recipe]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        view.backgroundColor = .backgroundColor
         createTable()
-        view.backgroundColor = .systemPurple
+        showEmptyStateView()
+        
+        emptyStateView.frame = view.frame
+        view.addSubview(emptyStateView)
     }
-    func createTable() {
-        self.myTableView = UITableView(frame: view.bounds, style: .plain)
-        myTableView.register(UITableViewCell.self, forCellReuseIdentifier: indentifire)
-        self.myTableView.delegate = self
-        self.myTableView.dataSource = self
-        myTableView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        view.addSubview(myTableView)
-    }
-    //MARK: - UITableViewDataSource
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 3
-    }
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        switch section {
-        case 0:
-            return 3
-        case 1:
-            return 5
-        case 2:
-            return 8
-        default:
-            break
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        favoriteItems = storageManager.fetchItems()
+        tableView.reloadData()
+        
+        if favoriteItems.isEmpty {
+            showEmptyStateView()
+        } else {
+            removeEmptyStateView()
         }
-        return 0
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cellFavourite = tableView.dequeueReusableCell(withIdentifier: indentifire, for: indexPath)
-        cellFavourite.textLabel?.text = "(addedFavourite)"
-        return cellFavourite
+    private func createTable() {
+        view.addSubview(tableView)
+        tableView.frame = view.frame
+        
+        tableView.register(FavoriteCell.self, forCellReuseIdentifier: identifier)
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.rowHeight = 100
+        tableView.backgroundColor = .backgroundColor
     }
     
-    //MARK: - UITableViewDelegate
-     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100.0
+    private func showEmptyStateView() {
+        view.bringSubviewToFront(emptyStateView)
+        
+    }
+    
+    private func removeEmptyStateView() {
+        view.bringSubviewToFront(tableView)
+        
     }
 }
 
+extension FavouriteViewController: UITableViewDataSource {
+    
+    // MARK: - UITableViewDataSource
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        favoriteItems.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as? FavoriteCell else {
+            return UITableViewCell()
+        }
+        
+        let recipe = favoriteItems[indexPath.row]
+        
+        cell.setup(title: recipe.title, imageUrl: recipe.image)
+        cell.backgroundColor = .backgroundColor
+        return cell
+    }
+}
+
+extension FavouriteViewController: UITableViewDelegate {
+    
+    // MARK: - UITableViewDelegate
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        let detailVC = DetailViewController()
+        detailVC.id = Int(favoriteItems[indexPath.row].id)
+        detailVC.isFavorite = true
+        navigationController?.pushViewController(detailVC, animated: true)
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let recipe = favoriteItems[indexPath.row]
+            storageManager.delete(recipe)
+            favoriteItems.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+            if favoriteItems.isEmpty {
+                showEmptyStateView()
+            } else {
+                removeEmptyStateView()
+            }
+        }
+    }
+    
+}

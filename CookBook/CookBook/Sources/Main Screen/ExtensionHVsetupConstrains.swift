@@ -3,25 +3,18 @@ import UIKit
 extension HeaderView {
     
     func setupView() {
-        
-        self.addSubview(welcomeTitle)
-        self.addSubview(americanButton)
-        self.addSubview(italianButton)
-        self.addSubview(japaneseButton)
-        self.addSubview(europeanButton)
-        self.addSubview(germanButton)
-        self.addSubview(koreanButton)
+        addSubviews([
+            welcomeTitle,
+            americanButton,
+            italianButton,
+            japaneseButton,
+            mexicanButton,
+            germanButton,
+            koreanButton
+        ])
     }
     
-    func setupConstraints () {
-        
-        welcomeTitle.translatesAutoresizingMaskIntoConstraints = false
-        americanButton.translatesAutoresizingMaskIntoConstraints = false
-        italianButton.translatesAutoresizingMaskIntoConstraints = false
-        japaneseButton.translatesAutoresizingMaskIntoConstraints = false
-        europeanButton.translatesAutoresizingMaskIntoConstraints = false
-        germanButton.translatesAutoresizingMaskIntoConstraints = false
-        koreanButton.translatesAutoresizingMaskIntoConstraints = false
+    func setupConstraints() {
         
         NSLayoutConstraint.activate([
             welcomeTitle.topAnchor.constraint(equalTo: self.topAnchor, constant: .welcomeTitleTopAncor),
@@ -59,10 +52,10 @@ extension HeaderView {
             japaneseButton.heightAnchor.constraint(equalToConstant: .japaneseButtonHeightAnchor)])
         
         NSLayoutConstraint.activate([
-            europeanButton.topAnchor.constraint(equalTo: japaneseButton.topAnchor, constant:.europeanButtonTopAnchor),
-            europeanButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: .europeanButtonLeadingAnchor),
-            europeanButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: .europeanButtonTrailingAnchor),
-            europeanButton.heightAnchor.constraint(equalToConstant: .europeanButtonHeightAnchor)])
+            mexicanButton.topAnchor.constraint(equalTo: japaneseButton.topAnchor, constant:.mexicanButtonTopAnchor),
+            mexicanButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: .mexicanButtonLeadingAnchor),
+            mexicanButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: .mexicanButtonTrailingAnchor),
+            mexicanButton.heightAnchor.constraint(equalToConstant: .mexicanButtonHeightAnchor)])
         
     }
     
@@ -72,6 +65,39 @@ extension HeaderView {
     }
 }
 
-
-
-
+private extension CGFloat {
+    
+    static let welcomeTitleTopAncor: CGFloat = 40
+    static let welcomeTitleHeightAnchor: CGFloat = 80.0
+    
+    static let americanButtonTopAnchor: CGFloat = 70
+    static let americanButtonLeadingAnchor: CGFloat = 10
+    static let americanButtonTrailingAnchor: CGFloat = -265
+    static let americanButtonHeightAnchor : CGFloat = 50
+    
+    static let italianButtonTopAnchor: CGFloat = 60
+    static let italianButtonLeadingAnchor: CGFloat = 10
+    static let italianButtonTrailingAnchor: CGFloat = -265
+    static let italianButtonHeightAnchor : CGFloat = 50
+    
+    static let japaneseButtonTopAnchor: CGFloat = 70
+    static let japeneseButtonLeadingAnchor: CGFloat = 135
+    static let japaneseButtonTrailingAnchor: CGFloat = -140
+    static let japaneseButtonHeightAnchor : CGFloat = 50
+    
+    static let koreanButtonTopAnchor: CGFloat = 60
+    static let koreanButtonTopAnchorButtonLeadingAnchor: CGFloat = 135
+    static let koreanButtonTopAnchorButtonTrailingAnchor: CGFloat = -140
+    static let koreanButtonTopAnchorButtonHeightAnchor : CGFloat = 50
+    
+    static let germanButtonTopAnchor: CGFloat = 70
+    static let germanButtonLeadingAnchor: CGFloat = 260
+    static let germanButtonTrailingAnchor: CGFloat = -10
+    static let germanButtonHeightAnchor : CGFloat = 50
+    
+    static let mexicanButtonTopAnchor: CGFloat = 60
+    static let mexicanButtonLeadingAnchor: CGFloat = 260
+    static let mexicanButtonTrailingAnchor: CGFloat = -10
+    static let mexicanButtonHeightAnchor : CGFloat = 50
+    
+}
