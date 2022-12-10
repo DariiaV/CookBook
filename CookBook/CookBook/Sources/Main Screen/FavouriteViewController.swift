@@ -19,8 +19,8 @@ class FavouriteViewController: UIViewController {
         view.addSubview(emptyStateView)
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
         favoriteItems = storageManager.fetchItems()
         tableView.reloadData()
