@@ -13,20 +13,19 @@ class TabBarController: UITabBarController {
         super.viewDidLoad()
         generateTabBar()
         setTabBarAppearance()
-        tabBarController?.tabBar.isHidden = false
     }
     private func generateTabBar() {
-        let kitchenVC = UINavigationController(rootViewController: KitchenViewController())
         viewControllers = [
             generateVC(
-                viewController: FistScreenViewController(),
-                title: "Home",
-                image: UIImage(systemName: "house.fill")
-            ),
-            generateVC(
-                viewController: kitchenVC,
+                viewController: KitchenViewController(),
                 title: "Kitchen",
                 image: UIImage(systemName: "cooktop.fill")
+            ),
+            
+            generateVC(
+                viewController: SearchViewController(),
+                title: "Search Recipe",
+                image: UIImage(systemName: "magnifyingglass.circle")
             ),
             
             generateVC(
@@ -40,7 +39,7 @@ class TabBarController: UITabBarController {
     private func generateVC(viewController: UIViewController, title: String, image: UIImage?) -> UIViewController {
         viewController.tabBarItem.title = title
         viewController.tabBarItem.image = image
-        return viewController
+        return UINavigationController(rootViewController: viewController)
     }
     
     private func setTabBarAppearance() {

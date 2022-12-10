@@ -10,13 +10,10 @@ import UIKit
 extension KitchenViewController {
     
     func setupConstraints() {
-        let guide = view.safeAreaLayoutGuide
-        
-        view.addSubview(headerView)
-        view.addSubview(myTableView)
-
-        headerView.translatesAutoresizingMaskIntoConstraints = false
-        myTableView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubviews([
+            headerView,
+            myTableView
+        ])
 
         NSLayoutConstraint.activate([
             headerView.topAnchor.constraint(equalTo: view.topAnchor,constant: 10),
@@ -33,4 +30,13 @@ extension KitchenViewController {
         ])
         
     }
+}
+
+// MARK: - Constant Constraints
+
+private extension CGFloat {
+    
+    static let headerViewHeightAnchor : CGFloat = -620
+    static let myTableViewTrailingAnchor : CGFloat = 100
+    static let myTableViewBottomAnchor : CGFloat = -0
 }

@@ -14,7 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var favoriteRecipes: [CuisineRecipe] = []
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         window = UIWindow(frame: UIScreen.main.bounds)
-        let viewController = TabBarController()
+        let viewController = FirstScreenViewController()
         let navController = UINavigationController (rootViewController: viewController)
         window?.rootViewController = navController
         window?.makeKeyAndVisible()

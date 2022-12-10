@@ -17,5 +17,7 @@ struct DetailRecipe: Decodable {
 
 struct Ingredient: Decodable {
     let name: String
-//    размер - вес
+    let amount: Double
+    let unit: String?
 }
+

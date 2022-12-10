@@ -9,15 +9,16 @@ import UIKit
 
 protocol RecipeManagerDelegate {
     func didUpdateDetailRecipe(recipe: DetailRecipe)
-    func didFailWithError(error: String)
     func didCuisinesRecipe(recipes: [CuisineRecipe])
+    func didUpdateSearchRecipes(recipes: [SearchRecipe])
+    func didFailWithError(error: String)
 }
 
 enum Cuisine: String {
     case american = "American"
     case italian = "Italian"
     case japanese = "Japanese"
-    case european = "European"
+    case mexican = "Mexican"
     case german = "German"
     case korean = "Korean"
 }
@@ -27,29 +28,37 @@ struct RecipeManager {
     private enum RecipeType {
         case cuisine
         case detailRecipe
+        case searchRecipes
     }
     
     var delegate: RecipeManagerDelegate?
     
+    private let apiKey = "YOUR-API"
     private let cache = NSCache<NSString, UIImage>()
-    private let recipeURL = "https://api.spoonacular.com/recipes/%@/information?includeNutrition=false&apiKey=7cfe18ee77ef4fc88fc411178fbd1711"
     
-    private let cuisinesURL = "https://api.spoonacular.com/recipes/complexSearch?cuisine=%@&apiKey=7cfe18ee77ef4fc88fc411178fbd1711"
-  
- 
+    private let recipeURL = "https://api.spoonacular.com/recipes/%@/information?includeNutrition=false&apiKey="
+    private let cuisinesURL = "https://api.spoonacular.com/recipes/complexSearch?cuisine=%@&apiKey="
+    private let searchURL = "https://api.spoonacular.com/recipes/autocomplete?&query=%@&apiKey="
+    
     func fetchDetailRecipe(id: String?) {
         guard let id else {
             delegate?.didFailWithError(error: "Not correct recipe!")
             return
         }
-        let urlString = String(format: recipeURL, id)
+        
+        let urlString = String(format: recipeURL, id) + apiKey
         performRequest(with: urlString, and: .detailRecipe)
     }
-    // метод для выгрузки данных метода кухни
+    
     func fetchCuisineRecipe(cuisine: Cuisine) {
-        let urlString = String(format: cuisinesURL, cuisine.rawValue)
-        print(urlString)
+        let urlString = String(format: cuisinesURL, cuisine.rawValue) + apiKey
         performRequest(with: urlString, and: .cuisine)
+    }
+    
+    func fetchSearchRecipes(text: String) {
+        let text = text.replacingOccurrences(of: " ", with: "+")
+        let urlString = String(format: searchURL, text) + apiKey
+        performRequest(with: urlString, and: .searchRecipes)
     }
     
     private func performRequest(with urlString: String, and type: RecipeType) {
@@ -59,21 +68,27 @@ struct RecipeManager {
             let session = URLSession(configuration: .default)
             
             let task = session.dataTask(with: url) { data, _, error in
+                
                 if let error {
                     self.delegate?.didFailWithError(error: error.localizedDescription)
                     return
                 }
+                
                 if let safeData = data {
                     switch type {
                     case .cuisine:
-                        let cuisine = self.parseCuisineJSON(safeData)
-                        self.delegate?.didCuisinesRecipe(recipes: cuisine)
+                        let cuisine = parseCuisineJSON(safeData)
+                        delegate?.didCuisinesRecipe(recipes: cuisine)
                         
                     case .detailRecipe:
-                        if let recipe = self.parseDetailJSON(safeData) {
-                            self.delegate?.didUpdateDetailRecipe(recipe: recipe)
+                        if let recipe = parseDetailJSON(safeData) {
+                            delegate?.didUpdateDetailRecipe(recipe: recipe)
                         }
+                    case .searchRecipes:
+                        let recipes = parseSearchJSON(safeData)
+                        delegate?.didUpdateSearchRecipes(recipes: recipes)
                     }
+                    
                 }
             }
             
@@ -97,8 +112,20 @@ struct RecipeManager {
         let decoder = JSONDecoder()
         do {
             let decodedData = try decoder.decode(CookBookRecipes.self, from: data)
-           
+            
             return decodedData.cuisineRecipes
+        } catch {
+            delegate?.didFailWithError(error: error.localizedDescription)
+            return []
+        }
+    }
+    
+    private func parseSearchJSON(_ data: Data) -> [SearchRecipe] {
+        let decoder = JSONDecoder()
+        do {
+            let decodedData = try decoder.decode([SearchRecipe].self, from: data)
+            
+            return decodedData
         } catch {
             delegate?.didFailWithError(error: error.localizedDescription)
             return []
